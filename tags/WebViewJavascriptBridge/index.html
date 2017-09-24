@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+  
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+  
+  
+  
+
+  <link rel="stylesheet" href="/css/mobi.css-3.0.4/dist/mobi.min.css">
+<link rel="stylesheet" href="/css/caomei1.2.1/style.css">
+<link rel="stylesheet" href="/css/theme.css">
+
+  
+
+  
+    <link rel="alternate" href="/atom.xml" title="流浪小猫的博客" type="application/atom+xml" />
+  
+
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+
+  <title>流浪小猫的博客</title>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+  <body class="theme-body">
+    <div class="flex-center theme-header-wrapper">
+  <div class="container flex-left units-gap theme-header-container">
+    <a href="/" class="unit-0 theme-header-icon theme-icon-link">
+      <i class="czs-home-l"></i>
+    </a>
+    <div class="flex-center text-center flex-middle unit theme-header-title theme-header-title-no-transition">
+      流浪小猫的博客
+    </div>
+    <a class="unit-0 theme-header-icon theme-icon-link theme-header-sidebar-icon" href="javascript:void(0);">
+      <i class="czs-menu-l"></i>
+    </a>
+  </div>
+</div>
+<div class="theme-header-placeholder"></div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var themeHeaderTitle = document.querySelector('.theme-header-title');
+  fitThemeHeaderTitleSize();
+
+  function fitThemeHeaderTitleSize() {
+    var currentFontSize = 20;
+    do {
+      themeHeaderTitle.style.fontSize = currentFontSize + 'px';
+      currentFontSize -= 1;
+    } while (getHeight(themeHeaderTitle) > 36);
+    function getHeight() {
+      return parseInt(getComputedStyle(themeHeaderTitle).height);
+    }
+    function getFontSize() {
+      return parseInt(getComputedStyle(themeHeaderTitle).fontSize);
+    }
+  }
+
+  var firstH1 = document.getElementsByTagName('h1')[0];
+  var originHeaderText = themeHeaderTitle.innerText;
+  if (firstH1) {
+    document.addEventListener('scroll', throttle(function() {
+      var bottom = firstH1.getBoundingClientRect().bottom;
+      if (bottom < 44.5) {
+        setTitleText(firstH1.innerText, false);
+      } else {
+        setTitleText(originHeaderText, true);
+      }
+
+      function setTitleText(text, isIn) {
+        if (themeHeaderTitle.innerText === text) {
+          return;
+        }
+        var top = isIn ? 10 : -10;
+        themeHeaderTitle.classList.add('theme-header-title-transparent');
+        themeHeaderTitle.style.top = top + 'px';
+        setTimeout(function() {
+          themeHeaderTitle.classList.add('theme-header-title-no-transition');
+          themeHeaderTitle.style.top = -top + 'px';
+          setTimeout(function() {
+            themeHeaderTitle.classList.remove('theme-header-title-no-transition');
+            themeHeaderTitle.classList.remove('theme-header-title-transparent');
+            themeHeaderTitle.style.top = '0px';
+            themeHeaderTitle.innerText = text;
+            fitThemeHeaderTitleSize();
+          }, 17);
+        }, 150);
+      }
+    }, 300));
+  }
+
+  // Returns a function, that, when invoked, will only be triggered at most once
+  // during a given window of time. Normally, the throttled function will run
+  // as much as it can, without ever going more than once per `wait` duration;
+  // but if you'd like to disable the execution on the leading edge, pass
+  // `{leading: false}`. To disable execution on the trailing edge, ditto.
+  function throttle(func, wait, options) {
+    var context, args, result;
+    var timeout = null;
+    var previous = 0;
+    if (!options) options = {};
+    var later = function() {
+      previous = options.leading === false ? 0 : Date.now();
+      timeout = null;
+      result = func.apply(context, args);
+      if (!timeout) context = args = null;
+    };
+    return function() {
+      var now = Date.now();
+      if (!previous && options.leading === false) previous = now;
+      var remaining = wait - (now - previous);
+      context = this;
+      args = arguments;
+      if (remaining <= 0 || remaining > wait) {
+        if (timeout) {
+          clearTimeout(timeout);
+          timeout = null;
+        }
+        previous = now;
+        result = func.apply(context, args);
+        if (!timeout) context = args = null;
+      } else if (!timeout && options.trailing !== false) {
+        timeout = setTimeout(later, remaining);
+      }
+      return result;
+    };
+  };
+});
+</script>
+
+    <div class="flex-center">
+      <div class="container">
+        <h1 class="text-center">WebViewJavascriptBridge</h1>
+<ul class="top-gap-big text-muted">
+  
+    <li>
+      <a href="/2014/10/27/hybrid_app_and_webviewjavascriptbridge/">
+        Hybrid App &amp; WebViewJavascriptBridge
+      </a>
+    </li>
+  
+</ul>
+<div class="top-gap-big theme-posts-gap"></div>
+
+<p class="text-center">
+  <small class="text-muted">
+    &copy;
+    
+      2012 -
+    
+    <span itemprop="copyrightYear">2017</span>
+    <i class="czs-heart" style="color:red;"></i>
+    <span itemprop="copyrightHolder">xcatliu</span>
+
+    <br/>
+
+    由 <a class="text-muted" href="https://hexo.io" title="Hexo">Hexo</a> 强力驱动
+    <span class="theme-separator">·</span>
+    主题
+    <a class="text-muted" href="https://github.com/xcatliu/hexo-theme-lite">Lite</a>
+  </small>
+</p>
+
+      </div>
+      <div class="theme-sidebar-mask theme-hide"></div>
+<aside class="theme-sidebar-wrapper">
+  <div class="container flex-left units-gap theme-header-container">
+    <a class="unit-0 theme-header-icon theme-icon-link" href="/archives">
+      <i class="czs-folder-l"></i>
+    </a>
+    <a class="unit-0 theme-header-icon theme-icon-link" href="/categories">
+      <i class="czs-bookmark-l"></i>
+    </a>
+    <a class="unit-0 theme-header-icon theme-icon-link" href="/tags">
+      <i class="czs-tag-l"></i>
+    </a>
+    <div class="unit"></div>
+    <a class="unit-0 theme-header-icon theme-icon-link" href="http://xcatliu.com">
+      <i class="czs-user-l"></i>
+    </a>
+  </div>
+  <div class="container">
+    
+          <h2>流浪小猫的博客</h2>
+        
+          <p class="top-gap-0 text-muted">记录我的成长点滴</p>
+        
+          <div class="flex-left flex-middle top-gap">
+            <img alt="Avatar" height="24" src="/assets/about/xcatliu_512.png"/>
+            <span class="theme-sidebar-author">xcatliu</span>
+          </div>
+        
+          <p>欢迎访问流浪小猫的博客，这里搜集了我的技术文章和生活感悟，希望能够与您一起交流，共同成长。</p>
+        
+          <p>
+            
+              <a class="theme-icon-link theme-sidebar-social" target="_blank" href="https://github.com/xcatliu"><i class="czs-github"></i></a>
+            
+              <a class="theme-icon-link theme-sidebar-social" target="_blank" href="https://www.v2ex.com/member/xcatliu"><i class="czs-v2ex"></i></a>
+            
+              <a class="theme-icon-link theme-sidebar-social" target="_blank" href="https://twitter.com/xcatliu"><i class="czs-twitter"></i></a>
+            
+              <a class="theme-icon-link theme-sidebar-social" target="_blank" href="mailto:xcatliu@gmail.com"><i class="czs-message-l"></i></a>
+            
+              <a class="theme-icon-link theme-sidebar-social" target="_blank" href="/atom.xml"><i class="czs-rss"></i></a>
+            
+          </p>
+        
+  </div>
+</aside>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var themeSidebarWrapper = document.querySelector('.theme-sidebar-wrapper');
+  var themeHeaderSidebarIcon = document.querySelector('.theme-header-sidebar-icon');
+  var themeSidebarMask = document.querySelector('.theme-sidebar-mask');
+  var themeBody = document.querySelector('.theme-body');
+  themeHeaderSidebarIcon.addEventListener('click', function() {
+    themeSidebarMask.classList.remove('theme-hide');
+    setTimeout(function() {
+      themeBody.classList.add('theme-body-open-sidebar');
+    }, 0);
+  });
+
+  var themeSidebarMask = document.querySelector('.theme-sidebar-mask');
+  themeSidebarMask.addEventListener('click', function() {
+    themeBody.classList.remove('theme-body-open-sidebar');
+    setTimeout(function() {
+      themeSidebarMask.classList.add('theme-hide');
+    }, 300);
+  });
+});
+</script>
+    </div>
+    
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45256157-6', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+    
+  <script id="dsq-count-scr" src="//xcatliu.disqus.com/count.js" async></script>
+
+  </body>
+</html>

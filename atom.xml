@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>流浪小猫的博客</title>
+  
+  <subtitle>记录我的成长点滴</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://blog.xcatliu.com/"/>
+  <updated>2017-09-24T03:24:52.000Z</updated>
+  <id>http://blog.xcatliu.com/</id>
+  
+  <author>
+    <name>xcatliu</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GitHub 上的测试覆盖率</title>
+    <link href="http://blog.xcatliu.com/2017/03/04/test_coverage_for_github/"/>
+    <id>http://blog.xcatliu.com/2017/03/04/test_coverage_for_github/</id>
+    <published>2017-03-04T06:11:37.000Z</published>
+    <updated>2017-09-24T03:24:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>开源项目的 README.md 中，一般都会在前面放上一些 badge，除了可以让读者快速的了解项目的一些信息以外，还为 README.md 添加了些许色彩。以 <a href="https://github.com/xcatliu/pagic" target="_blank" rel="external">Pagic</a> 为例：</p><p><img src="/assets/test_coverage_for_github/pagic.png" alt="pagic test coverage"></p><ul><li>上图中的 <code>build passing</code> 表示 <a href="https://travis-ci.org/xcatliu/pagic" target="_blank" rel="external">travis</a> build 通过了，用绿色背景显示，表明很安全。</li><li><code>npm v0.4.1</code> 表示最新版本是 <code>v0.4.1</code>，用橙色背景显示，表明是不稳定的版本。</li><li><code>downloads 165/month</code> 表示最近一个月 npm 里的下载数量为 165 次，用黄绿色背景显示，表明 165 次已经比较多了，但是还不算最好的成绩。</li><li><code>coverage 100%</code> 表示测试覆盖率达到了 100%，用绿色背景显示，表明很安全。</li></ul><p>介绍 GitHub 与 Travis CI 结合的文章已经很多了，本篇文章主要介绍一下测试覆盖率的概念以及如何将测试覆盖率的 badge 添加到 README.md 中。</p><h2 id="统一-badge"><a href="#统一-badge" class="headerlink" title="统一 badge"></a>统一 badge</h2><p>首先，为了使 badge 显示统一，我建议使用 <a href="http://shields.io" target="_blank" rel="external">http://shields.io</a> 添加 badge，它集成了大部分可能用到的 badge，使显示的样式一致了。</p><p>使用方式也很简单，比如 Pagic 的 Travis 的 badge 在 README.md 中就是：</p><pre class=" language-md"><code class="language-md">[![Build Status](https://img.shields.io/travis/xcatliu/pagic.svg)](https://travis-ci.org/xcatliu/pagic)</code></pre><p>其他的 badge 可以参考 <a href="http://shields.io" target="_blank" rel="external">http://shields.io</a> 里的说明添加即可。</p><h2 id="测试覆盖率"><a href="#测试覆盖率" class="headerlink" title="测试覆盖率"></a>测试覆盖率</h2><p>顾名思义，测试覆盖率就是运行的测试覆盖了多少代码里的逻辑。</p><p>这里我们使用 <a href="https://github.com/gotwarlost/istanbul" target="_blank" rel="external">Istanbul</a> 这个工具来检测代码的测试覆盖率。</p><p>因为我们需要在 Travis 中运行测试覆盖率的检测，所以我们需要在项目中安装 Istanbul，而不是在全局安装:</p><pre class=" language-shell"><code class="language-shell">npm install istanbul --save-dev</code></pre><p>然后在 <code>package.json</code> 中的 <code>scripts</code> 里添加：</p><pre class=" language-json"><code class="language-json"><span class="token property">"cover"</span><span class="token operator">:</span> <span class="token string">"istanbul cover node_modules/mocha/bin/_mocha"</span></code></pre><p>这个命令用于生成测试覆盖率报告，它也可以在本地运行，也可以在 Travis 里运行：</p><pre class=" language-shell"><code class="language-shell">npm run cover</code></pre><p>它将会先执行测试，然后生成一个 <code>coverage</code> 目录，里面有测试覆盖率报告，其中的 html 文件可以直接打开查看。当然运行的结果也会在终端中显示出来：</p><pre class=" language-shell"><code class="language-shell">  Pagic    constructor()      ✓ should have config and plugins  ...  getLayout    ✓ should return null if findParentDir returns null    ✓ should return layout result  27 passing (64ms)=============================================================================Writing coverage object [/Users/xcatliu/Workspace/pagic/coverage/coverage.json]Writing coverage reports at [/Users/xcatliu/Workspace/pagic/coverage]============================================================================================================ Coverage summary ===============================Statements   : 100% ( 73/73 )Branches     : 100% ( 12/12 )Functions    : 100% ( 10/10 )Lines        : 100% ( 72/72 )================================================================================</code></pre><h2 id="将测试覆盖率报告提交给-Coveralls"><a href="#将测试覆盖率报告提交给-Coveralls" class="headerlink" title="将测试覆盖率报告提交给 Coveralls"></a>将测试覆盖率报告提交给 Coveralls</h2><p><a href="https://coveralls.io/" target="_blank" rel="external">Coveralls</a> 用于收集测试覆盖率报告，对于开源项目免费。我们的 badge 也是 Coveralls 提供的数据。</p><p>Coveralls 可以使用 GitHub 账号登录，登录之后可以<a href="https://coveralls.io/repos/new" target="_blank" rel="external">在这里</a>添加需要收集报告的 repo，那么我们如何将测试覆盖率报告通过 Travis CI 提交给 Coveralls 呢？</p><p>首先需要安装 <code>coveralls</code>：</p><pre class=" language-shell"><code class="language-shell">npm install coveralls --save-dev</code></pre><p>然后在 <code>package.json</code> 中的 <code>scripts</code> 里添加：</p><pre class=" language-json"><code class="language-json"><span class="token property">"coveralls"</span><span class="token operator">:</span> "npm run cover -- --report lcovonly &amp;&amp; cat ./coverage/lcov.info | coveralls"</code></pre><p>然后在 <code>.travis.yml</code> 中添加：</p><pre class=" language-yml"><code class="language-yml">after_success:- npm run coveralls</code></pre><p>一个完整的 <code>.travis.yml</code> 如下：</p><pre class=" language-yml"><code class="language-yml">language: node_jsnode_js:- 6branches:  only:  - masterinstall:- npm installscript:- npm testafter_success:- npm run coveralls</code></pre><p>那么下一次提交代码的时候就会将测试覆盖率报告提交给 Coveralls 啦，别忘了在 README.md 中添加 badge 哦：</p><pre class=" language-md"><code class="language-md">[![Coveralls](https://img.shields.io/coveralls/xcatliu/pagic.svg)](https://coveralls.io/github/xcatliu/pagic)</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      介绍 GitHub 与 Travis CI 结合的文章已经很多了，本篇文章主要介绍一下测试覆盖率的概念以及如何将测试覆盖率的 badge 添加到 README.md 中。
+    
+    </summary>
+    
+      <category term="程序员" scheme="http://blog.xcatliu.com/categories/%E7%A8%8B%E5%BA%8F%E5%91%98/"/>
+    
+    
+      <category term="GitHub" scheme="http://blog.xcatliu.com/tags/GitHub/"/>
+    
+      <category term="Coverage" scheme="http://blog.xcatliu.com/tags/Coverage/"/>
+    
+      <category term="Test" scheme="http://blog.xcatliu.com/tags/Test/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>三分钟创建一个简单精致的 About Me 页面</title>
+    <link href="http://blog.xcatliu.com/2017/02/13/about_me/"/>
+    <id>http://blog.xcatliu.com/2017/02/13/about_me/</id>
+    <published>2017-02-13T12:03:15.000Z</published>
+    <updated>2017-09-24T03:42:57.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>通过 Fork 一个仓库，创建基于 GitHub Pages 的 About Me 页面。</p></blockquote><a id="more"></a><p>一个「About Me」页面，能够使别人快速的对你有一个大致的了解。</p><p>使用 GitHub 提供的 Pages 服务，可以将静态的网页托管在 GitHub 上。而 GitHub Pages 默认的 Jekyll 使得静态网页得以很方便的配置化。</p><p>我的 About Me 页面精雕细琢，并且页面的内容均提取成 yaml 配置文件，使大家可以简单几步就创建自己的 About Me 页面。</p><ul><li><a href="http://xcatliu.com/" target="_blank" rel="external">Live Demo</a></li><li><a href="https://github.com/xcatliu/xcatliu.github.io" target="_blank" rel="external">GitHub</a></li></ul><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ol><li>托管在 GitHub Pages 上，不需要服务器，不需要注册域名（也可以绑定自己的域名）</li><li>使用 GitHub Pages 上的 Jekyll 自动构建，不需要任何学习成本</li><li>所有内容均配置化，一看就知道如何修改</li><li>GitHub Repos 的信息会自动抓取</li><li>适配了桌面端和移动端，简单精致</li></ol><h2 id="创建自己的页面"><a href="#创建自己的页面" class="headerlink" title="创建自己的页面"></a>创建自己的页面</h2><blockquote><p>注意，下面使用 <code>${}</code> 包装的部分需要替换为你自己的内容</p></blockquote><ol><li>Fork <a href="https://github.com/xcatliu/xcatliu.github.io" target="_blank" rel="external">这个仓库</a></li><li>将仓库名更新为 <code>${YOUR_GITHUB_ID}.github.io</code></li><li>更新 <code>CNAME</code> 为 <code>${YOUR_DOMAIN}</code>，并且在域名的 DNS Records 中，为它添加一个 CNAME 记录指向 <code>${YOUR_GITHUB_ID}.github.io</code>（如果你没有域名，将此文件留空即可）</li><li>更新 <code>_config.yml</code> 以及 <code>assets/img/</code> 中的图片资源</li><li>打开 <code>${YOUR_DOMAIN}</code> 看看吧！（如果你没有域名，请打开 <code>${YOUR_GITHUB_ID}.github.io</code>）</li></ol><p>来创建自己的 About Me 页面吧！</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;通过 Fork 一个仓库，创建基于 GitHub Pages 的 About Me 页面。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="程序员" scheme="http://blog.xcatliu.com/categories/%E7%A8%8B%E5%BA%8F%E5%91%98/"/>
+    
+    
+      <category term="About" scheme="http://blog.xcatliu.com/tags/About/"/>
+    
+      <category term="GitHub" scheme="http://blog.xcatliu.com/tags/GitHub/"/>
+    
+      <category term="Jekyll" scheme="http://blog.xcatliu.com/tags/Jekyll/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>晒键盘 - FILCO 87 双模忍者圣手二代 黑色青轴</title>
+    <link href="http://blog.xcatliu.com/2017/01/29/flico/"/>
+    <id>http://blog.xcatliu.com/2017/01/29/flico/</id>
+    <published>2017-01-29T09:45:51.000Z</published>
+    <updated>2017-09-24T03:25:25.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>发表在 V2EX 上：<a href="https://www.v2ex.com/t/337333" target="_blank" rel="external">https://www.v2ex.com/t/337333</a></p></blockquote><p>关注了很久，这款键盘终于又有货了！</p><p>没抢到什么优惠券，狠下心还是入手了。</p><p>目前用起来还不错，比 2016 mbp 13 寸大一些。</p><p><img src="/assets/flico/FLICO-01.jpeg" alt="FLICO-01"><br><img src="/assets/flico/FLICO-02.jpeg" alt="FLICO-02"><br><img src="/assets/flico/FLICO-03.jpeg" alt="FLICO-03"><br><img src="/assets/flico/FLICO-04.jpeg" alt="FLICO-04"><br><img src="/assets/flico/FLICO-05.jpeg" alt="FLICO-05"><br><img src="/assets/flico/FLICO-06.jpeg" alt="FLICO-06"><br><img src="/assets/flico/FLICO-07.jpeg" alt="FLICO-07"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;img alt=&quot;FLICO-05&quot; src=&quot;/assets/flico/FLICO-05.jpeg&quot; /&gt;
+    
+    </summary>
+    
+      <category term="生活" scheme="http://blog.xcatliu.com/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="Flico" scheme="http://blog.xcatliu.com/tags/Flico/"/>
+    
+      <category term="Keyboard" scheme="http://blog.xcatliu.com/tags/Keyboard/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>随手撸了个测试屏幕坏点的网页</title>
+    <link href="http://blog.xcatliu.com/2017/01/19/full_color_screen/"/>
+    <id>http://blog.xcatliu.com/2017/01/19/full_color_screen/</id>
+    <published>2017-01-18T16:19:30.000Z</published>
+    <updated>2017-09-24T03:24:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>发表在 V2EX 上：<a href="https://www.v2ex.com/t/335504" target="_blank" rel="external">https://www.v2ex.com/t/335504</a></p></blockquote><p>新入手的 MacBook Pro 需要测试屏幕坏点，随手撸了一个，需要的人拿去吧~</p><p>GitHub: <a href="https://github.com/hack1day/full-color-screen" target="_blank" rel="external">https://github.com/hack1day/full-color-screen</a></p><h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><ul><li>Open <a href="http://full-color-screen.hack1day.com" target="_blank" rel="external">http://full-color-screen.hack1day.com</a></li><li>Press <code>SPACE</code> or <code>ENTER</code> or <em>click anywhere</em> to <strong>switch colors</strong></li><li>Press <code>H</code> or <em>click top-left corner</em> to <strong>toggle help</strong></li><li>Press <code>F</code> or <em>click top-right corner</em> to <strong>toggle fullscreen</strong></li></ul><p>手机适配没有做，等下次需要测试手机的时候再做吧。</p><p>发现一个作死的玩法，按住空格不动。。。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;发表在 V2EX 上：&lt;a href=&quot;https://www.v2ex.com/t/335504&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.v2ex.com/t/335504&lt;/a&gt;&lt;/p&gt;
+&lt;/bl
+      
+    
+    </summary>
+    
+      <category term="程序员" scheme="http://blog.xcatliu.com/categories/%E7%A8%8B%E5%BA%8F%E5%91%98/"/>
+    
+    
+      <category term="V2EX" scheme="http://blog.xcatliu.com/tags/V2EX/"/>
+    
+      <category term="Hack1day" scheme="http://blog.xcatliu.com/tags/Hack1day/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我写的第一本书《TypeScript 入门教程》</title>
+    <link href="http://blog.xcatliu.com/2017/01/17/my_first_book/"/>
+    <id>http://blog.xcatliu.com/2017/01/17/my_first_book/</id>
+    <published>2017-01-17T09:05:54.000Z</published>
+    <updated>2017-09-24T03:38:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>持续了大半年的学习和写作，在今天终于告一段落了。</p><a id="more"></a><h2 id="写书之旅"><a href="#写书之旅" class="headerlink" title="写书之旅"></a>写书之旅</h2><p>最初有写书的想法，是刚加入微软的时候。</p><p>由于工作中需要重度使用 TypeScript，所以我花了几天的时间研读了好几遍官方手册和中文翻译版。</p><p>对于一个把 OOP 早就还给老师的人，有些概念并不是很好理解，再加上官方手册跳跃般的学习曲线，我觉得我可以抓住这次学习的机会，把整个学习的过程总结下来。</p><p>一开始，取名为《From JavaScript to TypeScript》，寓意此书的作者并不是 TypeScript 的专家，而是一个新手。</p><p>其实这不一定是个劣势，因为有些坑，只有新手才能理解。我希望尽可能的还原第一次学习的场景，帮助大家更容易的理解 TypeScript。</p><p>于是，我开始了我的写书之旅。</p><h2 id="写书不易"><a href="#写书不易" class="headerlink" title="写书不易"></a>写书不易</h2><p>要说写书的感受，那真是太不容易了。</p><p>理解一个知识，和能够讲出来让别人理解完全是两码事。</p><p>而我又是一个强迫症患者。</p><ul><li>为了方便查阅，添加了非常多引用</li><li>为了一个措辞，会修订很多次</li><li>为了能循序渐进的理解，调整了多次顺序</li></ul><p>最难的还是在于坚持，一开始还会觉得挺有意思挺新鲜，慢慢的就会很枯燥乏味，无数次的回头重读之前写的，无数次的修改。</p><p>我收获的不只是对 TypeScript 理解的加深，而更是一份坚持的毅力和勇气吧。</p><p>再之后捧起别人写的书，都会油然而生一股敬意。</p><p>想必那一定也是比我付出更多百倍的精力才能写出来的了。</p><h2 id="《TypeScript-入门教程》介绍"><a href="#《TypeScript-入门教程》介绍" class="headerlink" title="《TypeScript 入门教程》介绍"></a>《TypeScript 入门教程》介绍</h2><p>从 JavaScript 程序员的角度总结思考，循序渐进的理解 TypeScript。</p><blockquote><p>原名《From JavaScript to TypeScript》</p></blockquote><ul><li><a href="https://ts.xcatliu.com/" target="_blank" rel="external">在线阅读</a>（部署在 <a href="https://www.gitbook.com/book/xcatliu/typescript-tutorial/details" target="_blank" rel="external">GitBook</a> 上，可能需要翻墙）</li><li><a href="https://github.com/xcatliu/typescript-tutorial/blob/master/README.md" target="_blank" rel="external">在线阅读（GitHub 版）</a></li><li><a href="https://github.com/xcatliu/typescript-tutorial" target="_blank" rel="external">GitHub 地址</a></li><li>作者：<a href="https://github.com/xcatliu/" target="_blank" rel="external">xcatliu</a></li><li>字数统计：约 6 万字（直接统计的字符数）</li></ul><p>更多介绍请<a href="https://github.com/xcatliu/typescript-tutorial" target="_blank" rel="external">进入 GitHub</a> 查看。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;持续了大半年的学习和写作，在今天终于告一段落了。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="程序员" scheme="http://blog.xcatliu.com/categories/%E7%A8%8B%E5%BA%8F%E5%91%98/"/>
+    
+    
+      <category term="TypeScript" scheme="http://blog.xcatliu.com/tags/TypeScript/"/>
+    
+      <category term="Tutorial" scheme="http://blog.xcatliu.com/tags/Tutorial/"/>
+    
+      <category term="Book" scheme="http://blog.xcatliu.com/tags/Book/"/>
+    
+  </entry>
+  
+</feed>
