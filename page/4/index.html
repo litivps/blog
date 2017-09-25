@@ -33,132 +33,151 @@
   <body class="theme-body">
     <div class="flex-center theme-header-wrapper">
   <div class="container flex-left units-gap theme-header-container">
-    <a href="/" class="unit-0 theme-header-icon theme-icon-link">
+    <a href="/" class="unit-0 theme-header-icon theme-icon-link" title="首页">
       <i class="czs-home-l"></i>
     </a>
     <div class="flex-center text-center flex-middle unit theme-header-title theme-header-title-no-transition">
       流浪小猫的博客
     </div>
-    <a class="unit-0 theme-header-icon theme-icon-link theme-header-sidebar-icon" href="javascript:void(0);">
+    <a class="unit-0 theme-header-icon theme-icon-link theme-header-sidebar-icon" href="javascript:void(0);" title="更多">
       <i class="czs-menu-l"></i>
     </a>
   </div>
 </div>
 <div class="theme-header-placeholder"></div>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var themeHeaderTitle = document.querySelector('.theme-header-title');
-  fitThemeHeaderTitleSize();
-
-  function fitThemeHeaderTitleSize() {
-    var currentFontSize = 20;
-    do {
-      themeHeaderTitle.style.fontSize = currentFontSize + 'px';
-      currentFontSize -= 1;
-    } while (getHeight(themeHeaderTitle) > 36);
-    function getHeight() {
-      return parseInt(getComputedStyle(themeHeaderTitle).height);
-    }
-    function getFontSize() {
-      return parseInt(getComputedStyle(themeHeaderTitle).fontSize);
-    }
-  }
-
-  var firstH1 = document.getElementsByTagName('h1')[0];
-  var originHeaderText = themeHeaderTitle.innerText;
-  if (firstH1) {
-    document.addEventListener('scroll', throttle(function() {
-      var bottom = firstH1.getBoundingClientRect().bottom;
-      if (bottom < 44.5) {
-        setTitleText(firstH1.innerText, false);
-      } else {
-        setTitleText(originHeaderText, true);
-      }
-
-      function setTitleText(text, isIn) {
-        if (themeHeaderTitle.innerText === text) {
-          return;
-        }
-        var top = isIn ? 10 : -10;
-        themeHeaderTitle.classList.add('theme-header-title-transparent');
-        themeHeaderTitle.style.top = top + 'px';
-        setTimeout(function() {
-          themeHeaderTitle.classList.add('theme-header-title-no-transition');
-          themeHeaderTitle.style.top = -top + 'px';
-          setTimeout(function() {
-            themeHeaderTitle.classList.remove('theme-header-title-no-transition');
-            themeHeaderTitle.classList.remove('theme-header-title-transparent');
-            themeHeaderTitle.style.top = '0px';
-            themeHeaderTitle.innerText = text;
-            fitThemeHeaderTitleSize();
-          }, 17);
-        }, 150);
-      }
-    }, 300));
-  }
-
-  // Returns a function, that, when invoked, will only be triggered at most once
-  // during a given window of time. Normally, the throttled function will run
-  // as much as it can, without ever going more than once per `wait` duration;
-  // but if you'd like to disable the execution on the leading edge, pass
-  // `{leading: false}`. To disable execution on the trailing edge, ditto.
-  function throttle(func, wait, options) {
-    var context, args, result;
-    var timeout = null;
-    var previous = 0;
-    if (!options) options = {};
-    var later = function() {
-      previous = options.leading === false ? 0 : Date.now();
-      timeout = null;
-      result = func.apply(context, args);
-      if (!timeout) context = args = null;
-    };
-    return function() {
-      var now = Date.now();
-      if (!previous && options.leading === false) previous = now;
-      var remaining = wait - (now - previous);
-      context = this;
-      args = arguments;
-      if (remaining <= 0 || remaining > wait) {
-        if (timeout) {
-          clearTimeout(timeout);
-          timeout = null;
-        }
-        previous = now;
-        result = func.apply(context, args);
-        if (!timeout) context = args = null;
-      } else if (!timeout && options.trailing !== false) {
-        timeout = setTimeout(later, remaining);
-      }
-      return result;
-    };
-  };
-});
-</script>
-
     <div class="flex-center">
       <div class="container">
-        <ul class="top-gap-big theme-posts-ul">
+        <ul class="top-gap-big theme-ul-no-style">
+  
+    <li>
+      <a href="/2016/09/05/600_stars_in_7_days/" class="theme-header-link">
+        <h3>7 天 600 stars， Mobi.css 是如何诞生的</h3>
+      </a>
+      <div class="text-small text-muted">
+  <time datetime="2016-09-05T00:00:00+08:00">
+    2016-09-05
+  </time>
+  <span class="theme-separator">·</span>
+  <i class="czs-user-l"></i>
+  <a class="text-muted theme-text-no-decoration" href="https://github.com/xcatliu">xcatliu</a>
+  <span class="theme-separator">·</span>
+  <i class="czs-bookmark-l"></i>
+  <a class="text-muted theme-text-no-decoration" href="/categories/Programmer/">Programmer</a>
+  <span class="theme-comment-count-container theme-hide theme-comment-count-container-transparent">
+    <span class="theme-separator">·</span>
+    <i class="czs-comment-l"></i>
+    <a class="text-muted theme-text-no-decoration theme-comment-count" data-disqus-identifier="2016/09/05/600_stars_in_7_days/" href="/2016/09/05/600_stars_in_7_days/#disqus_thread"></a>
+  </span>
+</div>
+
+      
+        
+          <p>Mobi.css 是一个轻量、灵活的移动端 CSS 框架。发布一周以来，获得了 600+ stars，登上了 GitHub Trending Top1（CSS），在 Hacker News 上进入了前三。</p>
+        
+          <p><a class="text-muted" href="/2016/09/05/600_stars_in_7_days/#more">
+            继续阅读
+          </a></p>
+      
+      <div class="top-gap theme-bfc"></div>
+    </li>
+  
+    <li>
+      <a href="/2016/08/29/mobi-css/" class="theme-header-link">
+        <h3>「Mobi.css」轻量，灵活的移动端 css 框架</h3>
+      </a>
+      <div class="text-small text-muted">
+  <time datetime="2016-08-29T00:00:00+08:00">
+    2016-08-29
+  </time>
+  <span class="theme-separator">·</span>
+  <i class="czs-user-l"></i>
+  <a class="text-muted theme-text-no-decoration" href="https://github.com/xcatliu">xcatliu</a>
+  <span class="theme-separator">·</span>
+  <i class="czs-bookmark-l"></i>
+  <a class="text-muted theme-text-no-decoration" href="/categories/Programmer/">Programmer</a>
+  <span class="theme-comment-count-container theme-hide theme-comment-count-container-transparent">
+    <span class="theme-separator">·</span>
+    <i class="czs-comment-l"></i>
+    <a class="text-muted theme-text-no-decoration theme-comment-count" data-disqus-identifier="2016/08/29/mobi-css/" href="/2016/08/29/mobi-css/#disqus_thread"></a>
+  </span>
+</div>
+
+      
+      <div class="top-gap theme-bfc"></div>
+    </li>
+  
+    <li>
+      <a href="/2016/07/01/two_hexo_plugins/" class="theme-header-link">
+        <h3>撸了两个 Hexo 的 Plugins</h3>
+      </a>
+      <div class="text-small text-muted">
+  <time datetime="2016-07-01T19:10:46+08:00">
+    2016-07-01
+  </time>
+  <span class="theme-separator">·</span>
+  <i class="czs-user-l"></i>
+  <a class="text-muted theme-text-no-decoration" href="https://github.com/xcatliu">xcatliu</a>
+  <span class="theme-separator">·</span>
+  <i class="czs-bookmark-l"></i>
+  <a class="text-muted theme-text-no-decoration" href="/categories/Programmer/">Programmer</a>
+  <span class="theme-comment-count-container theme-hide theme-comment-count-container-transparent">
+    <span class="theme-separator">·</span>
+    <i class="czs-comment-l"></i>
+    <a class="text-muted theme-text-no-decoration theme-comment-count" data-disqus-identifier="2016/07/01/two_hexo_plugins/" href="/2016/07/01/two_hexo_plugins/#disqus_thread"></a>
+  </span>
+</div>
+
+      
+      <div class="top-gap theme-bfc"></div>
+    </li>
+  
+    <li>
+      <a href="/2016/06/25/hexo-theme-wiki-i18n/" class="theme-header-link">
+        <h3>新姿势：在 GitHub 基于 Hexo 写 Wiki</h3>
+      </a>
+      <div class="text-small text-muted">
+  <time datetime="2016-06-25T00:00:00+08:00">
+    2016-06-25
+  </time>
+  <span class="theme-separator">·</span>
+  <i class="czs-user-l"></i>
+  <a class="text-muted theme-text-no-decoration" href="https://github.com/xcatliu">xcatliu</a>
+  <span class="theme-separator">·</span>
+  <i class="czs-bookmark-l"></i>
+  <a class="text-muted theme-text-no-decoration" href="/categories/Programmer/">Programmer</a>
+  <span class="theme-comment-count-container theme-hide theme-comment-count-container-transparent">
+    <span class="theme-separator">·</span>
+    <i class="czs-comment-l"></i>
+    <a class="text-muted theme-text-no-decoration theme-comment-count" data-disqus-identifier="2016/06/25/hexo-theme-wiki-i18n/" href="/2016/06/25/hexo-theme-wiki-i18n/#disqus_thread"></a>
+  </span>
+</div>
+
+      
+      <div class="top-gap theme-bfc"></div>
+    </li>
   
     <li>
       <a href="/2016/05/20/setup_linux_workspace_in_windows_using_hyper-v/" class="theme-header-link">
-        <h2>在 Windows 中配置 Linux 工作环境（使用 Hyper-V）</h2>
+        <h3>在 Windows 中配置 Linux 工作环境（使用 Hyper-V）</h3>
       </a>
       <div class="text-small text-muted">
-        <i class="czs-user-l"></i>
-        <a class="text-muted theme-text-no-decoration" href="https://github.com/xcatliu">xcatliu</a>
-        <span class="theme-separator">·</span>
-        <i class="czs-bookmark-l"></i>
-        <a class="text-muted theme-text-no-decoration" href="/categories/程序员/">程序员</a>
-        <span class="theme-comment-count-container theme-hide theme-comment-count-container-transparent">
-          <span class="theme-separator">·</span>
-          <a class="text-muted theme-text-no-decoration" href="/2016/05/20/setup_linux_workspace_in_windows_using_hyper-v/#disqus_thread">
-            <i class="czs-comment-l"></i>
-            <span class="disqus-comment-count theme-comment-count" data-disqus-identifier="2016/05/20/setup_linux_workspace_in_windows_using_hyper-v/"></span>
-          </a>
-        </span>
-      </div>
+  <time datetime="2016-05-20T15:57:04+08:00">
+    2016-05-20
+  </time>
+  <span class="theme-separator">·</span>
+  <i class="czs-user-l"></i>
+  <a class="text-muted theme-text-no-decoration" href="https://github.com/xcatliu">xcatliu</a>
+  <span class="theme-separator">·</span>
+  <i class="czs-bookmark-l"></i>
+  <a class="text-muted theme-text-no-decoration" href="/categories/Programmer/">Programmer</a>
+  <span class="theme-comment-count-container theme-hide theme-comment-count-container-transparent">
+    <span class="theme-separator">·</span>
+    <i class="czs-comment-l"></i>
+    <a class="text-muted theme-text-no-decoration theme-comment-count" data-disqus-identifier="2016/05/20/setup_linux_workspace_in_windows_using_hyper-v/" href="/2016/05/20/setup_linux_workspace_in_windows_using_hyper-v/#disqus_thread"></a>
+  </span>
+</div>
+
       
         
           <p><blockquote>
@@ -170,148 +189,18 @@ document.addEventListener('DOMContentLoaded', function() {
             继续阅读
           </a></p>
       
-      <div class="top-gap-big theme-posts-gap"></div>
-    </li>
-  
-    <li>
-      <a href="/2016/04/28/debug_android_browser_in_chrome/" class="theme-header-link">
-        <h2>在 Chrome 中调试 Android 浏览器</h2>
-      </a>
-      <div class="text-small text-muted">
-        <i class="czs-user-l"></i>
-        <a class="text-muted theme-text-no-decoration" href="https://github.com/xcatliu">xcatliu</a>
-        <span class="theme-separator">·</span>
-        <i class="czs-bookmark-l"></i>
-        <a class="text-muted theme-text-no-decoration" href="/categories/程序员/">程序员</a>
-        <span class="theme-comment-count-container theme-hide theme-comment-count-container-transparent">
-          <span class="theme-separator">·</span>
-          <a class="text-muted theme-text-no-decoration" href="/2016/04/28/debug_android_browser_in_chrome/#disqus_thread">
-            <i class="czs-comment-l"></i>
-            <span class="disqus-comment-count theme-comment-count" data-disqus-identifier="2016/04/28/debug_android_browser_in_chrome/"></span>
-          </a>
-        </span>
-      </div>
-      
-        
-          <p>最近需要使用 Chrome Developer Tools 调试 Android 浏览器，但是<a href="https://developers.google.com/web/tools/chrome-devtools/debug/remote-debugging/remote-debugging" target="_blank" rel="external">官方指南</a>并不是很好使，经过一番折腾，终于调试成功了，在此把经验分享给需要的朋友。</p>
-<p>Chrome Developer Tools 是前端工程师必不可少的工具，它极大的提高了我们的开发调试效率。在移动开发的时代，我们也必须掌握手机浏览器在 Chrome 中调试的方法。本篇仅介绍 Android。</p>
-        
-          <p><a class="text-muted" href="/2016/04/28/debug_android_browser_in_chrome/#more">
-            继续阅读
-          </a></p>
-      
-      <div class="top-gap-big theme-posts-gap"></div>
-    </li>
-  
-    <li>
-      <a href="/2016/04/25/setup_linux_workspace_in_windows/" class="theme-header-link">
-        <h2>在 Windows 中配置 Linux 工作环境</h2>
-      </a>
-      <div class="text-small text-muted">
-        <i class="czs-user-l"></i>
-        <a class="text-muted theme-text-no-decoration" href="https://github.com/xcatliu">xcatliu</a>
-        <span class="theme-separator">·</span>
-        <i class="czs-bookmark-l"></i>
-        <a class="text-muted theme-text-no-decoration" href="/categories/程序员/">程序员</a>
-        <span class="theme-comment-count-container theme-hide theme-comment-count-container-transparent">
-          <span class="theme-separator">·</span>
-          <a class="text-muted theme-text-no-decoration" href="/2016/04/25/setup_linux_workspace_in_windows/#disqus_thread">
-            <i class="czs-comment-l"></i>
-            <span class="disqus-comment-count theme-comment-count" data-disqus-identifier="2016/04/25/setup_linux_workspace_in_windows/"></span>
-          </a>
-        </span>
-      </div>
-      
-        
-          <p><blockquote>
-<p>由于我的大部分项目都是基于 Linux 的，所以在 Windows 中配置一个 Linux 工作环境是非常有必要的（别问我为什么不用 MacBook 了 T_T）</p>
-</blockquote>
-<p>2016-05-20 更新：可以使用更加先进的 <a href="http://blog.xcatliu.com/2016/05/20/setup-linux-workspace-in-windows-using-hyper-v/">Hyper-V + Samba 方案</a>。</p>
-<p>要在 Windows 上使用 Linux，最方便最好用的就是装个虚拟机，再用 SSH 连上了。Linux 当然选择无图形界面的 Server 版，所以还需要能够方便的在 Windows 上访问到 Linux 上的文件。</p>
-<p>其中每一项都可以有很多选择，不过都是大同小异了。这里我选择的是 VituralBox + Ubuntu + PuTTY + Shared Folders。</p></p>
-        
-          <p><a class="text-muted" href="/2016/04/25/setup_linux_workspace_in_windows/#more">
-            继续阅读
-          </a></p>
-      
-      <div class="top-gap-big theme-posts-gap"></div>
-    </li>
-  
-    <li>
-      <a href="/2016/01/31/if_the_human_race_die_out/" class="theme-header-link">
-        <h2>假如人类灭绝了，可以留给下一个文明有限的遗产，那么该留些什么呢？</h2>
-      </a>
-      <div class="text-small text-muted">
-        <i class="czs-user-l"></i>
-        <a class="text-muted theme-text-no-decoration" href="https://github.com/xcatliu">xcatliu</a>
-        <span class="theme-separator">·</span>
-        <i class="czs-bookmark-l"></i>
-        <a class="text-muted theme-text-no-decoration" href="/categories/创意/">创意</a>
-        <span class="theme-comment-count-container theme-hide theme-comment-count-container-transparent">
-          <span class="theme-separator">·</span>
-          <a class="text-muted theme-text-no-decoration" href="/2016/01/31/if_the_human_race_die_out/#disqus_thread">
-            <i class="czs-comment-l"></i>
-            <span class="disqus-comment-count theme-comment-count" data-disqus-identifier="2016/01/31/if_the_human_race_die_out/"></span>
-          </a>
-        </span>
-      </div>
-      
-      <div class="top-gap-big theme-posts-gap"></div>
-    </li>
-  
-    <li>
-      <a href="/2016/01/29/goodbye_ie8/" class="theme-header-link">
-        <h2>Goodbye IE8</h2>
-      </a>
-      <div class="text-small text-muted">
-        <i class="czs-user-l"></i>
-        <a class="text-muted theme-text-no-decoration" href="https://github.com/xcatliu">xcatliu</a>
-        <span class="theme-separator">·</span>
-        <i class="czs-bookmark-l"></i>
-        <a class="text-muted theme-text-no-decoration" href="/categories/程序员/">程序员</a>
-        <span class="theme-comment-count-container theme-hide theme-comment-count-container-transparent">
-          <span class="theme-separator">·</span>
-          <a class="text-muted theme-text-no-decoration" href="/2016/01/29/goodbye_ie8/#disqus_thread">
-            <i class="czs-comment-l"></i>
-            <span class="disqus-comment-count theme-comment-count" data-disqus-identifier="2016/01/29/goodbye_ie8/"></span>
-          </a>
-        </span>
-      </div>
-      
-      <div class="top-gap-big theme-posts-gap"></div>
+      <div class="top-gap theme-bfc"></div>
     </li>
   
 </ul>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.theme-comment-count-container').forEach(function (countContainerNode) {
-    var countNode = countContainerNode.querySelector('.theme-comment-count');
-    var cycles = 0;
-    var countInterval = setInterval(function () {
-      cycles += 1;
-      var count = countNode.innerText;
-      if (count !== '' || cycles > 10) {
-        clearInterval(countInterval);
-      }
-      if (count > 0) {
-        countContainerNode.classList.remove('theme-hide');
-        setTimeout(function () {
-          countContainerNode.classList.remove('theme-comment-count-container-transparent');
-        }, 0);
-      }
-    }, 1000)
-  });
-});
-</script>
 
   <nav class="theme-pagination top-gap-big text-center">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="czs-angle-left-l"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/5/"><i class="czs-angle-right-l"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="czs-angle-left-l"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/5/"><i class="czs-angle-right-l"></i></a>
   </nav>
 
 
-<div class="top-gap-big theme-posts-gap"></div>
-
+        <hr class="top-gap-big"></hr>
 <p class="text-center">
   <small class="text-muted">
     &copy;
@@ -327,7 +216,7 @@ document.addEventListener('DOMContentLoaded', function() {
     由 <a class="text-muted" href="https://hexo.io" title="Hexo">Hexo</a> 强力驱动
     <span class="theme-separator">·</span>
     主题
-    <a class="text-muted" href="https://github.com/xcatliu/hexo-theme-lite">Lite</a>
+    <a class="text-muted" href="https://github.com/xcatliu/hexo-theme-milk">Milk</a>
   </small>
 </p>
 
@@ -335,83 +224,89 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="theme-sidebar-mask theme-hide"></div>
 <aside class="theme-sidebar-wrapper">
   <div class="container flex-left units-gap theme-header-container">
-    <a class="unit-0 theme-header-icon theme-icon-link" href="/archives">
+    
+    <a class="unit-0 theme-icon-link" href="/archives" title="归档">
       <i class="czs-folder-l"></i>
     </a>
-    <a class="unit-0 theme-header-icon theme-icon-link" href="/categories">
+  
+    <a class="unit-0 theme-icon-link" href="/categories" title="分类">
       <i class="czs-bookmark-l"></i>
     </a>
-    <a class="unit-0 theme-header-icon theme-icon-link" href="/tags">
+  
+    <a class="unit-0 theme-icon-link" href="/tags" title="标签">
       <i class="czs-tag-l"></i>
     </a>
+  
     <div class="unit"></div>
-    <a class="unit-0 theme-header-icon theme-icon-link" href="http://xcatliu.com">
+  
+    <a class="unit-0 theme-icon-link" href="http://xcatliu.com" title="关于我">
       <i class="czs-user-l"></i>
     </a>
+  
+
   </div>
   <div class="container">
     
           <h2>流浪小猫的博客</h2>
-        
+          
           <p class="top-gap-0 text-muted">记录我的成长点滴</p>
-        
+          
           <div class="flex-left flex-middle top-gap">
             <img alt="Avatar" height="24" src="/assets/about/xcatliu_512.png"/>
             <span class="theme-sidebar-author">xcatliu</span>
           </div>
-        
+          
           <p>欢迎访问流浪小猫的博客，这里搜集了我的技术文章和生活感悟，希望能够与您一起交流，共同成长。</p>
-        
-          <p>
+          
+          <p class="theme-sidebar-social">
             
-              <a class="theme-icon-link theme-sidebar-social" target="_blank" href="https://github.com/xcatliu"><i class="czs-github"></i></a>
-            
-              <a class="theme-icon-link theme-sidebar-social" target="_blank" href="https://www.v2ex.com/member/xcatliu"><i class="czs-v2ex"></i></a>
-            
-              <a class="theme-icon-link theme-sidebar-social" target="_blank" href="https://twitter.com/xcatliu"><i class="czs-twitter"></i></a>
-            
-              <a class="theme-icon-link theme-sidebar-social" target="_blank" href="mailto:xcatliu@gmail.com"><i class="czs-message-l"></i></a>
-            
-              <a class="theme-icon-link theme-sidebar-social" target="_blank" href="/atom.xml"><i class="czs-rss"></i></a>
-            
+    <a class="unit-0 theme-icon-link" href="https://github.com/xcatliu" title="GitHub">
+      <i class="czs-github"></i>
+    </a>
+  
+    <a class="unit-0 theme-icon-link" href="https://www.v2ex.com/member/xcatliu" title="V2EX">
+      <i class="czs-v2ex"></i>
+    </a>
+  
+    <a class="unit-0 theme-icon-link" href="https://twitter.com/xcatliu" title="Twitter">
+      <i class="czs-twitter"></i>
+    </a>
+  
+    <a class="unit-0 theme-icon-link" href="mailto:xcatliu@gmail.com" title="Gmail">
+      <i class="czs-message-l"></i>
+    </a>
+  
+    <a class="unit-0 theme-icon-link" href="/atom.xml" title="RSS 订阅">
+      <i class="czs-rss"></i>
+    </a>
+  
+
           </p>
-        
+          
+          <h5>友情链接</h5>
+          <p class="text-muted">
+            <small>
+              <ul class="theme-list-style-none">
+                <li><a class="text-muted" href="http://www.kangry.net/blog/">康瑞部落</a></li><li><a class="text-muted" href="http://chuangzaoshi.com/">创造狮</a></li><li><a class="text-muted" href="https://blog.jamespan.me/">James Pan's Blog</a></li><li><a class="text-muted" href="/links">More</a></li>
+              </ul>
+            </small>
+          </p>
+          
   </div>
 </aside>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var themeSidebarWrapper = document.querySelector('.theme-sidebar-wrapper');
-  var themeHeaderSidebarIcon = document.querySelector('.theme-header-sidebar-icon');
-  var themeSidebarMask = document.querySelector('.theme-sidebar-mask');
-  var themeBody = document.querySelector('.theme-body');
-  themeHeaderSidebarIcon.addEventListener('click', function() {
-    themeSidebarMask.classList.remove('theme-hide');
-    setTimeout(function() {
-      themeBody.classList.add('theme-body-open-sidebar');
-    }, 0);
-  });
-
-  var themeSidebarMask = document.querySelector('.theme-sidebar-mask');
-  themeSidebarMask.addEventListener('click', function() {
-    themeBody.classList.remove('theme-body-open-sidebar');
-    setTimeout(function() {
-      themeSidebarMask.classList.add('theme-hide');
-    }, 300);
-  });
-});
-</script>
     </div>
+    <script src="/js/theme.js"></script>
     
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-45256157-6', 'auto');
-  ga('send', 'pageview');
-</script>
+    ga('create', 'UA-45256157-6', 'auto');
+    ga('send', 'pageview');
+  </script>
 
 
     

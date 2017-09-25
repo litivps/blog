@@ -35,109 +35,18 @@
   <body class="theme-body">
     <div class="flex-center theme-header-wrapper">
   <div class="container flex-left units-gap theme-header-container">
-    <a href="/" class="unit-0 theme-header-icon theme-icon-link">
+    <a href="/" class="unit-0 theme-header-icon theme-icon-link" title="首页">
       <i class="czs-home-l"></i>
     </a>
     <div class="flex-center text-center flex-middle unit theme-header-title theme-header-title-no-transition">
       流浪小猫的博客
     </div>
-    <a class="unit-0 theme-header-icon theme-icon-link theme-header-sidebar-icon" href="javascript:void(0);">
+    <a class="unit-0 theme-header-icon theme-icon-link theme-header-sidebar-icon" href="javascript:void(0);" title="更多">
       <i class="czs-menu-l"></i>
     </a>
   </div>
 </div>
 <div class="theme-header-placeholder"></div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var themeHeaderTitle = document.querySelector('.theme-header-title');
-  fitThemeHeaderTitleSize();
-
-  function fitThemeHeaderTitleSize() {
-    var currentFontSize = 20;
-    do {
-      themeHeaderTitle.style.fontSize = currentFontSize + 'px';
-      currentFontSize -= 1;
-    } while (getHeight(themeHeaderTitle) > 36);
-    function getHeight() {
-      return parseInt(getComputedStyle(themeHeaderTitle).height);
-    }
-    function getFontSize() {
-      return parseInt(getComputedStyle(themeHeaderTitle).fontSize);
-    }
-  }
-
-  var firstH1 = document.getElementsByTagName('h1')[0];
-  var originHeaderText = themeHeaderTitle.innerText;
-  if (firstH1) {
-    document.addEventListener('scroll', throttle(function() {
-      var bottom = firstH1.getBoundingClientRect().bottom;
-      if (bottom < 44.5) {
-        setTitleText(firstH1.innerText, false);
-      } else {
-        setTitleText(originHeaderText, true);
-      }
-
-      function setTitleText(text, isIn) {
-        if (themeHeaderTitle.innerText === text) {
-          return;
-        }
-        var top = isIn ? 10 : -10;
-        themeHeaderTitle.classList.add('theme-header-title-transparent');
-        themeHeaderTitle.style.top = top + 'px';
-        setTimeout(function() {
-          themeHeaderTitle.classList.add('theme-header-title-no-transition');
-          themeHeaderTitle.style.top = -top + 'px';
-          setTimeout(function() {
-            themeHeaderTitle.classList.remove('theme-header-title-no-transition');
-            themeHeaderTitle.classList.remove('theme-header-title-transparent');
-            themeHeaderTitle.style.top = '0px';
-            themeHeaderTitle.innerText = text;
-            fitThemeHeaderTitleSize();
-          }, 17);
-        }, 150);
-      }
-    }, 300));
-  }
-
-  // Returns a function, that, when invoked, will only be triggered at most once
-  // during a given window of time. Normally, the throttled function will run
-  // as much as it can, without ever going more than once per `wait` duration;
-  // but if you'd like to disable the execution on the leading edge, pass
-  // `{leading: false}`. To disable execution on the trailing edge, ditto.
-  function throttle(func, wait, options) {
-    var context, args, result;
-    var timeout = null;
-    var previous = 0;
-    if (!options) options = {};
-    var later = function() {
-      previous = options.leading === false ? 0 : Date.now();
-      timeout = null;
-      result = func.apply(context, args);
-      if (!timeout) context = args = null;
-    };
-    return function() {
-      var now = Date.now();
-      if (!previous && options.leading === false) previous = now;
-      var remaining = wait - (now - previous);
-      context = this;
-      args = arguments;
-      if (remaining <= 0 || remaining > wait) {
-        if (timeout) {
-          clearTimeout(timeout);
-          timeout = null;
-        }
-        previous = now;
-        result = func.apply(context, args);
-        if (!timeout) context = args = null;
-      } else if (!timeout && options.trailing !== false) {
-        timeout = setTimeout(later, remaining);
-      }
-      return result;
-    };
-  };
-});
-</script>
 
     <div class="flex-center">
       <div class="container">
@@ -145,26 +54,30 @@ document.addEventListener('DOMContentLoaded', function() {
   <h1 class="text-center">
     美团一个月
   </h1>
-  <div class="top-gap text-center text-muted">
-  <small>
-    发表于
-    <time datetime="2013-01-04T00:00:00+08:00">
-      2013-01-04
-    </time>
-
+  <div class="text-center top-gap">
+    <div class="text-small text-muted">
+  <time datetime="2013-01-04T00:00:00+08:00">
+    2013-01-04
+  </time>
+  <span class="theme-separator">·</span>
+  <i class="czs-user-l"></i>
+  <a class="text-muted theme-text-no-decoration" href="https://github.com/xcatliu">xcatliu</a>
+  <span class="theme-separator">·</span>
+  <i class="czs-bookmark-l"></i>
+  <a class="text-muted theme-text-no-decoration" href="/categories/Programmer/">Programmer</a>
+  <span class="theme-comment-count-container theme-hide theme-comment-count-container-transparent">
     <span class="theme-separator">·</span>
-    
-    分类于
-    <a class="text-muted" href="/categories/程序员/">程序员</a>
-  </small>
+    <i class="czs-comment-l"></i>
+    <a class="text-muted theme-text-no-decoration theme-comment-count" data-disqus-identifier="2013/01/04/monthly_summery_in_meituan/" href="/2013/01/04/monthly_summery_in_meituan/#disqus_thread"></a>
+  </span>
 </div>
 
+  </div>
   <div class="top-gap-big">
     <h2 id="初来乍到"><a href="#初来乍到" class="headerlink" title="初来乍到"></a>初来乍到</h2><p>来美团已有一个月零四天，有幸见证了月销售额突破七亿和八亿的时刻，认识了志同道合的朋友，加入了这个飞速成长的大家庭。</p>
 <h2 id="学习与成长"><a href="#学习与成长" class="headerlink" title="学习与成长"></a>学习与成长</h2><h3 id="vim-和-git"><a href="#vim-和-git" class="headerlink" title="vim 和 git"></a>vim 和 git</h3><p>磨刀不误砍柴工，只有运用好了这些最基本的工具，才能在工作中得心应手。</p>
 <p>之前学习 Linux 课程时用过 vim，就惊叹于它的脱离鼠标的高效性和个性化的定制性，可没来得及深入研究，现在终于要用到它时，才发现它不仅仅是一个简单的编辑器，在学习了 <code>vimtutor</code>，看了关于 vim 的 wiki，收到 zb 的 vimrc 指导后，渐渐能够运用它了，相信熟练后它会给我带来高效的编辑能力。</p>
 <p>版本控制以前用过 svn，第一次接触 git 时，不是很理解它的很多命令的意义，比如 <code>add</code> 和 <code>commit</code> 到底有什么区别，为什么要有这个缓存区等等，在阅读了《pro git》和《git权威指南》（目前只读了一部分）之后，对 git 这种分布式版本控制系统有了更深的理解，在做了一些 task 后，对它也有了初步的运用，但还是有很多需要学习的地方了。</p>
-<a id="more"></a>
 <h3 id="简单的-html，css-的修改，熟悉开发流程"><a href="#简单的-html，css-的修改，熟悉开发流程" class="headerlink" title="简单的 html，css 的修改，熟悉开发流程"></a>简单的 html，css 的修改，熟悉开发流程</h3><p>在第一个 task 中，我就因为添加的一个 css 影响到了其他页面，之后阅读了 CssCodingStyle 后，才知道了这个规范的重要性。html 方面，一开始可能会不小心忘记闭合一个标签，或者语义和标签不符而犯下很多小错误，之后文兵对我指点后，就会时时注意到这些细节了，细节决定成败。</p>
 <h3 id="js-的修改，熟悉-js-框架"><a href="#js-的修改，熟悉-js-框架" class="headerlink" title="js 的修改，熟悉 js 框架"></a>js 的修改，熟悉 js 框架</h3><p>之后做了一些需要涉及到 js 逻辑的 task，过程中遇到了一些 IE 下的诡异的 bug，查阅资料后解决了。</p>
 <p>在这里我发现 YUI 是一个比较复杂的框架，因为之前只用过 jQuery，在 YUI 的模块调用方面还不是很懂，于是我阅读了 yuilibrary 文档中的 core 部分，目前基本能理解模块调用，在需要用到一些模块时，能够找到并且理解加以运用了。</p>
@@ -184,16 +97,18 @@ document.addEventListener('DOMContentLoaded', function() {
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这个月有付出，也有收获，有充实的工作和生活，也有幸福的 TB 和长假~</p>
 
   </div>
-  <div class="top-gap-big text-center text-muted">
-    <small>
-      <a class="text-muted" href="/tags/Summary/">#Summary</a>
-    </small>
-  </div>
 </article>
+<blockquote class="top-gap-big"> <p> 本文遵循 <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" class"text-muted">CC BY-ND-ND 3.0</a> 协议，转载请注明原作者，禁止商用，禁止演绎。 </p> </blockquote>
+<div class="top-gap-big text-center text-muted">
+  <small>
+    <i class="czs-tag-l"></i>
+    <a class="text-muted" href="/tags/Summary/">Summary</a>
+  </small>
+</div>
 
-  
-    <div id="disqus_thread" class="top-gap-big"></div>
-    <script>
+
+  <div id="disqus_thread" class="top-gap-big"></div>
+  <script>
     var langMap = {
       en: 'en',
       'zh-CN': 'zh'
@@ -210,13 +125,11 @@ document.addEventListener('DOMContentLoaded', function() {
       s.setAttribute('data-timestamp', +new Date());
       (d.head || d.body).appendChild(s);
     })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 
-<div class="top-gap-big theme-posts-gap"></div>
-
+        <hr class="top-gap-big"></hr>
 <p class="text-center">
   <small class="text-muted">
     &copy;
@@ -232,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
     由 <a class="text-muted" href="https://hexo.io" title="Hexo">Hexo</a> 强力驱动
     <span class="theme-separator">·</span>
     主题
-    <a class="text-muted" href="https://github.com/xcatliu/hexo-theme-lite">Lite</a>
+    <a class="text-muted" href="https://github.com/xcatliu/hexo-theme-milk">Milk</a>
   </small>
 </p>
 
@@ -240,83 +153,89 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="theme-sidebar-mask theme-hide"></div>
 <aside class="theme-sidebar-wrapper">
   <div class="container flex-left units-gap theme-header-container">
-    <a class="unit-0 theme-header-icon theme-icon-link" href="/archives">
+    
+    <a class="unit-0 theme-icon-link" href="/archives" title="归档">
       <i class="czs-folder-l"></i>
     </a>
-    <a class="unit-0 theme-header-icon theme-icon-link" href="/categories">
+  
+    <a class="unit-0 theme-icon-link" href="/categories" title="分类">
       <i class="czs-bookmark-l"></i>
     </a>
-    <a class="unit-0 theme-header-icon theme-icon-link" href="/tags">
+  
+    <a class="unit-0 theme-icon-link" href="/tags" title="标签">
       <i class="czs-tag-l"></i>
     </a>
+  
     <div class="unit"></div>
-    <a class="unit-0 theme-header-icon theme-icon-link" href="http://xcatliu.com">
+  
+    <a class="unit-0 theme-icon-link" href="http://xcatliu.com" title="关于我">
       <i class="czs-user-l"></i>
     </a>
+  
+
   </div>
   <div class="container">
     
           <h2>流浪小猫的博客</h2>
-        
+          
           <p class="top-gap-0 text-muted">记录我的成长点滴</p>
-        
+          
           <div class="flex-left flex-middle top-gap">
             <img alt="Avatar" height="24" src="/assets/about/xcatliu_512.png"/>
             <span class="theme-sidebar-author">xcatliu</span>
           </div>
-        
+          
           <p>欢迎访问流浪小猫的博客，这里搜集了我的技术文章和生活感悟，希望能够与您一起交流，共同成长。</p>
-        
-          <p>
+          
+          <p class="theme-sidebar-social">
             
-              <a class="theme-icon-link theme-sidebar-social" target="_blank" href="https://github.com/xcatliu"><i class="czs-github"></i></a>
-            
-              <a class="theme-icon-link theme-sidebar-social" target="_blank" href="https://www.v2ex.com/member/xcatliu"><i class="czs-v2ex"></i></a>
-            
-              <a class="theme-icon-link theme-sidebar-social" target="_blank" href="https://twitter.com/xcatliu"><i class="czs-twitter"></i></a>
-            
-              <a class="theme-icon-link theme-sidebar-social" target="_blank" href="mailto:xcatliu@gmail.com"><i class="czs-message-l"></i></a>
-            
-              <a class="theme-icon-link theme-sidebar-social" target="_blank" href="/atom.xml"><i class="czs-rss"></i></a>
-            
+    <a class="unit-0 theme-icon-link" href="https://github.com/xcatliu" title="GitHub">
+      <i class="czs-github"></i>
+    </a>
+  
+    <a class="unit-0 theme-icon-link" href="https://www.v2ex.com/member/xcatliu" title="V2EX">
+      <i class="czs-v2ex"></i>
+    </a>
+  
+    <a class="unit-0 theme-icon-link" href="https://twitter.com/xcatliu" title="Twitter">
+      <i class="czs-twitter"></i>
+    </a>
+  
+    <a class="unit-0 theme-icon-link" href="mailto:xcatliu@gmail.com" title="Gmail">
+      <i class="czs-message-l"></i>
+    </a>
+  
+    <a class="unit-0 theme-icon-link" href="/atom.xml" title="RSS 订阅">
+      <i class="czs-rss"></i>
+    </a>
+  
+
           </p>
-        
+          
+          <h5>友情链接</h5>
+          <p class="text-muted">
+            <small>
+              <ul class="theme-list-style-none">
+                <li><a class="text-muted" href="http://www.kangry.net/blog/">康瑞部落</a></li><li><a class="text-muted" href="http://chuangzaoshi.com/">创造狮</a></li><li><a class="text-muted" href="https://blog.jamespan.me/">James Pan's Blog</a></li><li><a class="text-muted" href="/links">More</a></li>
+              </ul>
+            </small>
+          </p>
+          
   </div>
 </aside>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var themeSidebarWrapper = document.querySelector('.theme-sidebar-wrapper');
-  var themeHeaderSidebarIcon = document.querySelector('.theme-header-sidebar-icon');
-  var themeSidebarMask = document.querySelector('.theme-sidebar-mask');
-  var themeBody = document.querySelector('.theme-body');
-  themeHeaderSidebarIcon.addEventListener('click', function() {
-    themeSidebarMask.classList.remove('theme-hide');
-    setTimeout(function() {
-      themeBody.classList.add('theme-body-open-sidebar');
-    }, 0);
-  });
-
-  var themeSidebarMask = document.querySelector('.theme-sidebar-mask');
-  themeSidebarMask.addEventListener('click', function() {
-    themeBody.classList.remove('theme-body-open-sidebar');
-    setTimeout(function() {
-      themeSidebarMask.classList.add('theme-hide');
-    }, 300);
-  });
-});
-</script>
     </div>
+    <script src="/js/theme.js"></script>
     
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-45256157-6', 'auto');
-  ga('send', 'pageview');
-</script>
+    ga('create', 'UA-45256157-6', 'auto');
+    ga('send', 'pageview');
+  </script>
 
 
     

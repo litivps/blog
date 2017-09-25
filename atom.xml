@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.xcatliu.com/"/>
-  <updated>2017-09-24T03:24:52.000Z</updated>
+  <updated>2017-09-25T13:35:53.000Z</updated>
   <id>http://blog.xcatliu.com/</id>
   
   <author>
@@ -17,11 +17,125 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>运行一个脚本，看看你的项目的代码质量吧</title>
+    <link href="http://blog.xcatliu.com/2017/09/20/cqc/"/>
+    <id>http://blog.xcatliu.com/2017/09/20/cqc/</id>
+    <published>2017-09-19T16:00:00.000Z</published>
+    <updated>2017-09-25T13:35:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>发表在 V2EX 上：<a href="https://www.v2ex.com/t/392337" target="_blank" rel="external">https://www.v2ex.com/t/392337</a></p></blockquote><ul><li>GitHub: <a href="https://github.com/xcatliu/cqc" target="_blank" rel="external">https://github.com/xcatliu/cqc</a></li></ul><p>代码质量有很多指标：</p><ol><li>源代码行数</li><li>代码重复率</li><li>圈复杂度</li><li>报错量（ Bug 数）占比</li><li>测试覆盖率</li><li>开发约束（代码块行数等）</li></ol><p>我做了一个脚本可以测出上面的 1, 2, 3</p><p>大家都来试一试吧！</p><h2 id="Supported-Languages"><a href="#Supported-Languages" class="headerlink" title="Supported Languages"></a>Supported Languages</h2><ul><li>js, jsx</li><li>css, less, scss, sass, styl</li></ul><h2 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h2><h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><pre class=" language-sh"><code class="language-sh">npm install -g cqc</code></pre><h3 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h3><pre class=" language-sh"><code class="language-sh">cqc src/**/*.js src/**/*.jsx</code></pre><p>Output:</p><pre><code>Number of files:        9Source lines of code:   463Duplicate rate:         15.71%High complexity rate:   11.11%Max complexity:         19</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;发表在 V2EX 上：&lt;a href=&quot;https://www.v2ex.com/t/392337&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.v2ex.com/t/392337&lt;/a&gt;&lt;/p&gt;
+&lt;/bl
+      
+    
+    </summary>
+    
+      <category term="Programmer" scheme="http://blog.xcatliu.com/categories/Programmer/"/>
+    
+    
+      <category term="V2EX" scheme="http://blog.xcatliu.com/tags/V2EX/"/>
+    
+      <category term="Quality" scheme="http://blog.xcatliu.com/tags/Quality/"/>
+    
+      <category term="Complexity" scheme="http://blog.xcatliu.com/tags/Complexity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mobi.css v3 发布了，一个轻量、可拓展、移动端优先的 CSS 框架</title>
+    <link href="http://blog.xcatliu.com/2017/09/04/mobi-css_v3/"/>
+    <id>http://blog.xcatliu.com/2017/09/04/mobi-css_v3/</id>
+    <published>2017-09-03T16:00:00.000Z</published>
+    <updated>2017-09-25T13:35:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>发表在 V2EX 上：<a href="https://www.v2ex.com/t/387918" target="_blank" rel="external">https://www.v2ex.com/t/387918</a></p></blockquote><ul><li>github: <a href="https://github.com/mobi-css/mobi.css" target="_blank" rel="external">https://github.com/mobi-css/mobi.css</a></li><li>官网： <a href="http://getmobicss.com/" target="_blank" rel="external">http://getmobicss.com/</a></li></ul><h2 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h2><ul><li>轻量级：压缩 gzip 后只有 2.6 kb</li><li>可拓展：可以引入 plugin 来拓展 Mobi.css ，并且每个 plugin 都可以独立于框架使用</li><li>移动端优先：为移动端设计，在桌面端也表现良好</li></ul><p>前贴：<a href="/2016/08/29/mobi-css">「Mobi.css」轻量，灵活的移动端 css 框架</a></p><h2 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h2><h3 id="Mobi-css-有哪些其他框架没有的特性呢？"><a href="#Mobi-css-有哪些其他框架没有的特性呢？" class="headerlink" title="Mobi.css 有哪些其他框架没有的特性呢？"></a>Mobi.css 有哪些其他框架没有的特性呢？</h3><ol><li>flexbox 很好用 <a href="http://getmobicss.com/docs/flexbox.html" target="_blank" rel="external">http://getmobicss.com/docs/flexbox.html</a></li><li>每个 plugin 可以独立使用，即使你不想用 Mobi.css ，也可以只用其中一个 plugin</li><li>认为只使用 margin-top 分隔块比较好，所以几乎所有 margin-bottom 都为 0</li></ol><h3 id="为什么从-v1-直接跳到-v3-了？"><a href="#为什么从-v1-直接跳到-v3-了？" class="headerlink" title="为什么从 v1 直接跳到 v3 了？"></a>为什么从 v1 直接跳到 v3 了？</h3><p>因为开发了 v2 一段时间之后，遇到一些问题，过了一段时间才找到解决方案，此时以及离 v2 beta 版相差有点远了，所以就直接跳到了 v3</p><h3 id="有-qq-群或微信群讨论吗？"><a href="#有-qq-群或微信群讨论吗？" class="headerlink" title="有 qq 群或微信群讨论吗？"></a>有 qq 群或微信群讨论吗？</h3><p>有，qq 群 378244667 微信请加我 xcatliu，注明姓名和来自 v2ex，我拉你进群</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;发表在 V2EX 上：&lt;a href=&quot;https://www.v2ex.com/t/387918&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.v2ex.com/t/387918&lt;/a&gt;&lt;/p&gt;
+&lt;/bl
+      
+    
+    </summary>
+    
+      <category term="Programmer" scheme="http://blog.xcatliu.com/categories/Programmer/"/>
+    
+    
+      <category term="Mobi.css" scheme="http://blog.xcatliu.com/tags/Mobi-css/"/>
+    
+      <category term="V2EX" scheme="http://blog.xcatliu.com/tags/V2EX/"/>
+    
+      <category term="CSS" scheme="http://blog.xcatliu.com/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我花了两个月时间，定制出了心目中「完美」的 ESLint 规则，我用四个空格缩进</title>
+    <link href="http://blog.xcatliu.com/2017/08/25/eslint-config-alloy/"/>
+    <id>http://blog.xcatliu.com/2017/08/25/eslint-config-alloy/</id>
+    <published>2017-08-24T16:00:00.000Z</published>
+    <updated>2017-09-25T13:35:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>发表在 V2EX 上：<a href="https://www.v2ex.com/t/385804" target="_blank" rel="external">https://www.v2ex.com/t/385804</a></p></blockquote><ul><li><a href="https://github.com/AlloyTeam/eslint-config-alloy" target="_blank" rel="external">GitHub Repo</a></li></ul><p>本规则包含以下几种配置项：</p><ul><li><a href="https://github.com/AlloyTeam/eslint-config-alloy/tree/master/index.js" target="_blank" rel="external">标准规则</a>：包含<a href="https://eslint.org/docs/rules/" target="_blank" rel="external">所有 ESLint 规则</a></li><li><a href="https://github.com/AlloyTeam/eslint-config-alloy/tree/master/react.js" target="_blank" rel="external">React 版</a>：在标准规则的基础上，增加了所有 <a href="https://github.com/yannickcr/eslint-plugin-react" target="_blank" rel="external">eslint-plugin-react</a> 规则</li><li><a href="https://github.com/AlloyTeam/eslint-config-alloy/tree/master/vue.js" target="_blank" rel="external">Vue 版</a>：在标准规则的基础上，增加了所有 <a href="https://github.com/vuejs/eslint-plugin-vue" target="_blank" rel="external">eslint-plugin-vue</a> 规则</li></ul><h2 id="配置原则"><a href="#配置原则" class="headerlink" title="配置原则"></a>配置原则</h2><p>我们依据以下三条原则，研读了 ESLint 所有的配置项，定制出了心目中的「完美」ESLint 配置。</p><ol><li>能够帮助发现代码错误的规则，全部开启</li><li>配置不应该依赖于某个具体项目，而应尽可能的合理</li><li>帮助保持团队的代码风格统一，而不是限制开发体验</li></ol><h2 id="配置解读"><a href="#配置解读" class="headerlink" title="配置解读"></a>配置解读</h2><p>我们对每一条配置，都有详尽的注释，这样不仅方便了我们自己查阅某项配置的意义和原因，也使大家更容易配置出自己心目中的规则：</p><ul><li>每一条配置都有注释说明此配置的用途</li><li>对于理解困难的配置，都在注释中有举例</li><li>对于有争议的配置，都在注释中说明了为什么要这么配置的原因</li><li>对于关闭掉的配置，都在注释中有对应的原因说明，以及 <code>@off</code> 的标识</li><li>对于能够 autofix 的配置，都在注释中有标注 <code>@autofix</code></li></ul><p>详细的配置内容在这里：</p><ul><li><a href="https://github.com/AlloyTeam/eslint-config-alloy/blob/master/index.js" target="_blank" rel="external">ESLint 标准规则</a></li><li><a href="https://github.com/AlloyTeam/eslint-config-alloy/blob/master/react.js" target="_blank" rel="external">eslint-plugin-react 规则</a></li><li><a href="https://github.com/AlloyTeam/eslint-config-alloy/blob/master/vue.js" target="_blank" rel="external">eslint-plugin-vue 规则</a></li></ul><p>下面列出一个代码片段供参考：</p><pre class=" language-js"><code class="language-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>    parser<span class="token punctuation">:</span> <span class="token string">'babel-eslint'</span><span class="token punctuation">,</span>    parserOptions<span class="token punctuation">:</span> <span class="token punctuation">{</span>        ecmaVersion<span class="token punctuation">:</span> <span class="token number">2017</span><span class="token punctuation">,</span>        sourceType<span class="token punctuation">:</span> <span class="token string">'module'</span><span class="token punctuation">,</span>        ecmaFeatures<span class="token punctuation">:</span> <span class="token punctuation">{</span>            experimentalObjectRestSpread<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>            jsx<span class="token punctuation">:</span> <span class="token boolean">true</span>        <span class="token punctuation">}</span>    <span class="token punctuation">}</span><span class="token punctuation">,</span>    env<span class="token punctuation">:</span> <span class="token punctuation">{</span>        browser<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>        node<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>        commonjs<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>        es6<span class="token punctuation">:</span> <span class="token boolean">true</span>    <span class="token punctuation">}</span><span class="token punctuation">,</span>    <span class="token comment" spellcheck="true">// 以当前目录为根目录，不再向上查找 .eslintrc.js</span>    root<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>    rules<span class="token punctuation">:</span> <span class="token punctuation">{</span>        <span class="token comment" spellcheck="true">//</span>        <span class="token comment" spellcheck="true">//</span>        <span class="token comment" spellcheck="true">// 可能的错误</span>        <span class="token comment" spellcheck="true">// 这些规则与 JavaScript 代码中可能的语法错误或逻辑错误有关</span>        <span class="token comment" spellcheck="true">//</span>        <span class="token comment" spellcheck="true">// 禁止 for 循环出现方向错误的循环，比如 for (i = 0; i &lt; 10; i--)</span>        <span class="token string">'for-direction'</span><span class="token punctuation">:</span> <span class="token string">'error'</span><span class="token punctuation">,</span>        <span class="token comment" spellcheck="true">// getter 必须有返回值，并且禁止返回空，比如 return;</span>        <span class="token string">'getter-return'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>            <span class="token string">'error'</span><span class="token punctuation">,</span>            <span class="token punctuation">{</span>                allowImplicit<span class="token punctuation">:</span> <span class="token boolean">false</span>            <span class="token punctuation">}</span>        <span class="token punctuation">]</span><span class="token punctuation">,</span>        <span class="token comment" spellcheck="true">// 禁止将 await 写在循环里，因为这样就无法同时发送多个异步请求了</span>        <span class="token comment" spellcheck="true">// @off 要求太严格了，有时需要在循环中写 await</span>        <span class="token string">'no-await-in-loop'</span><span class="token punctuation">:</span> <span class="token string">'off'</span><span class="token punctuation">,</span>        <span class="token comment" spellcheck="true">// 禁止与负零进行比较</span>        <span class="token string">'no-compare-neg-zero'</span><span class="token punctuation">:</span> <span class="token string">'error'</span><span class="token punctuation">,</span>        <span class="token comment" spellcheck="true">// 禁止在 if, for, while 里使用赋值语句，除非这个赋值语句被括号包起来了</span>        <span class="token string">'no-cond-assign'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>            <span class="token string">'error'</span><span class="token punctuation">,</span>            <span class="token string">'except-parens'</span>        <span class="token punctuation">]</span><span class="token punctuation">,</span>        <span class="token comment" spellcheck="true">// 禁止使用 console</span>        <span class="token comment" spellcheck="true">// @off console 的使用很常见</span>        <span class="token string">'no-console'</span><span class="token punctuation">:</span> <span class="token string">'off'</span><span class="token punctuation">,</span>        <span class="token comment" spellcheck="true">// 禁止将常量作为 if, for, while 里的测试条件，比如 if (true), for (;;)，除非循环内部有 break 语句</span>        <span class="token string">'no-constant-condition'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>            <span class="token string">'error'</span><span class="token punctuation">,</span>            <span class="token punctuation">{</span>                checkLoops<span class="token punctuation">:</span> <span class="token boolean">false</span>            <span class="token punctuation">}</span>        <span class="token punctuation">]</span><span class="token punctuation">,</span>        <span class="token comment" spellcheck="true">// 禁止在正则表达式中出现 Ctrl 键的 ASCII 表示，即禁止使用 /\x1f/</span>        <span class="token comment" spellcheck="true">// 开启此规则，因为字符串中一般不会出现 Ctrl 键，所以一旦出现了，可能是一个代码错误</span>        <span class="token string">'no-control-regex'</span><span class="token punctuation">:</span> <span class="token string">'error'</span><span class="token punctuation">,</span>        <span class="token comment" spellcheck="true">// @fixable 禁止使用 debugger</span>        <span class="token string">'no-debugger'</span><span class="token punctuation">:</span> <span class="token string">'error'</span><span class="token punctuation">,</span>        <span class="token comment" spellcheck="true">// 禁止在函数参数中出现重复名称的参数</span>        <span class="token string">'no-dupe-args'</span><span class="token punctuation">:</span> <span class="token string">'error'</span><span class="token punctuation">,</span>        <span class="token comment" spellcheck="true">// 禁止在对象字面量中出现重复名称的键名</span>        <span class="token string">'no-dupe-keys'</span><span class="token punctuation">:</span> <span class="token string">'error'</span><span class="token punctuation">,</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre><h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="标准规则"><a href="#标准规则" class="headerlink" title="标准规则"></a>标准规则</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> --save-dev eslint-config-alloy babel-eslint</code></pre><h4 id="配置-eslintrc-js"><a href="#配置-eslintrc-js" class="headerlink" title="配置 .eslintrc.js"></a>配置 .eslintrc.js</h4><p>在你的项目根目录下创建 <code>.eslintrc.js</code>，并将以下内容复制到文件中：</p><pre class=" language-js"><code class="language-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>    <span class="token keyword">extends</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>        <span class="token string">'eslint-config-alloy'</span><span class="token punctuation">,</span>    <span class="token punctuation">]</span><span class="token punctuation">,</span>    globals<span class="token punctuation">:</span> <span class="token punctuation">{</span>        <span class="token comment" spellcheck="true">// 这里填入你的项目需要的全局变量</span>        <span class="token comment" spellcheck="true">// 这里值为 false 表示这个全局变量不允许被重新赋值，比如：</span>        <span class="token comment" spellcheck="true">//</span>        <span class="token comment" spellcheck="true">// jQuery: false,</span>        <span class="token comment" spellcheck="true">// $: false</span>    <span class="token punctuation">}</span><span class="token punctuation">,</span>    rules<span class="token punctuation">:</span> <span class="token punctuation">{</span>        <span class="token comment" spellcheck="true">// 这里填入你的项目需要的个性化配置，比如：</span>        <span class="token comment" spellcheck="true">//</span>        <span class="token comment" spellcheck="true">// // @fixable 一个缩进必须用两个空格替代</span>        <span class="token comment" spellcheck="true">// 'indent': [</span>        <span class="token comment" spellcheck="true">//     'error',</span>        <span class="token comment" spellcheck="true">//     2,</span>        <span class="token comment" spellcheck="true">//     {</span>        <span class="token comment" spellcheck="true">//         SwitchCase: 1,</span>        <span class="token comment" spellcheck="true">//         flatTernaryExpressions: true</span>        <span class="token comment" spellcheck="true">//     }</span>        <span class="token comment" spellcheck="true">// ]</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre><h3 id="React-版"><a href="#React-版" class="headerlink" title="React 版"></a>React 版</h3><h4 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> --save-dev eslint-config-alloy eslint-plugin-react babel-eslint</code></pre><h4 id="配置-eslintrc-js-1"><a href="#配置-eslintrc-js-1" class="headerlink" title="配置 .eslintrc.js"></a>配置 .eslintrc.js</h4><p>在你的项目根目录下创建 <code>.eslintrc.js</code>，并将以下内容复制到文件中：</p><pre class=" language-js"><code class="language-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>    <span class="token keyword">extends</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>        <span class="token string">'eslint-config-alloy/react'</span><span class="token punctuation">,</span>    <span class="token punctuation">]</span><span class="token punctuation">,</span>    globals<span class="token punctuation">:</span> <span class="token punctuation">{</span>        <span class="token comment" spellcheck="true">// 这里填入你的项目需要的全局变量</span>        <span class="token comment" spellcheck="true">// 这里值为 false 表示这个全局变量不允许被重新赋值，比如：</span>        <span class="token comment" spellcheck="true">//</span>        <span class="token comment" spellcheck="true">// React: false,</span>        <span class="token comment" spellcheck="true">// ReactDOM: false</span>    <span class="token punctuation">}</span><span class="token punctuation">,</span>    rules<span class="token punctuation">:</span> <span class="token punctuation">{</span>        <span class="token comment" spellcheck="true">// 这里填入你的项目需要的个性化配置，比如：</span>        <span class="token comment" spellcheck="true">//</span>        <span class="token comment" spellcheck="true">// // @fixable 一个缩进必须用两个空格替代</span>        <span class="token comment" spellcheck="true">// 'indent': [</span>        <span class="token comment" spellcheck="true">//     'error',</span>        <span class="token comment" spellcheck="true">//     2,</span>        <span class="token comment" spellcheck="true">//     {</span>        <span class="token comment" spellcheck="true">//         SwitchCase: 1,</span>        <span class="token comment" spellcheck="true">//         flatTernaryExpressions: true</span>        <span class="token comment" spellcheck="true">//     }</span>        <span class="token comment" spellcheck="true">// ],</span>        <span class="token comment" spellcheck="true">// // @fixable jsx 的 children 缩进必须为两个空格</span>        <span class="token comment" spellcheck="true">// 'react/jsx-indent': [</span>        <span class="token comment" spellcheck="true">//     'error',</span>        <span class="token comment" spellcheck="true">//     2</span>        <span class="token comment" spellcheck="true">// ],</span>        <span class="token comment" spellcheck="true">// // @fixable jsx 的 props 缩进必须为两个空格</span>        <span class="token comment" spellcheck="true">// 'react/jsx-indent-props': [</span>        <span class="token comment" spellcheck="true">//     'error',</span>        <span class="token comment" spellcheck="true">//     2</span>        <span class="token comment" spellcheck="true">// ]</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre><h3 id="Vue-版"><a href="#Vue-版" class="headerlink" title="Vue 版"></a>Vue 版</h3><h4 id="安装-2"><a href="#安装-2" class="headerlink" title="安装"></a>安装</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> --save-dev eslint-config-alloy eslint-plugin-vue babel-eslint</code></pre><h4 id="配置-eslintrc-js-2"><a href="#配置-eslintrc-js-2" class="headerlink" title="配置 .eslintrc.js"></a>配置 .eslintrc.js</h4><p>在你的项目根目录下创建 <code>.eslintrc.js</code>，并将以下内容复制到文件中：</p><pre class=" language-js"><code class="language-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>    <span class="token keyword">extends</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>        <span class="token string">'eslint-config-alloy/vue'</span><span class="token punctuation">,</span>    <span class="token punctuation">]</span><span class="token punctuation">,</span>    globals<span class="token punctuation">:</span> <span class="token punctuation">{</span>        <span class="token comment" spellcheck="true">// 这里填入你的项目需要的全局变量</span>        <span class="token comment" spellcheck="true">// 这里值为 false 表示这个全局变量不允许被重新赋值，比如：</span>        <span class="token comment" spellcheck="true">//</span>        <span class="token comment" spellcheck="true">// Vue: false</span>    <span class="token punctuation">}</span><span class="token punctuation">,</span>    rules<span class="token punctuation">:</span> <span class="token punctuation">{</span>        <span class="token comment" spellcheck="true">// 这里填入你的项目需要的个性化配置，比如：</span>        <span class="token comment" spellcheck="true">//</span>        <span class="token comment" spellcheck="true">// // @fixable 一个缩进必须用两个空格替代</span>        <span class="token comment" spellcheck="true">// 'indent': [</span>        <span class="token comment" spellcheck="true">//     'error',</span>        <span class="token comment" spellcheck="true">//     2,</span>        <span class="token comment" spellcheck="true">//     {</span>        <span class="token comment" spellcheck="true">//         SwitchCase: 1,</span>        <span class="token comment" spellcheck="true">//         flatTernaryExpressions: true</span>        <span class="token comment" spellcheck="true">//     }</span>        <span class="token comment" spellcheck="true">// ]</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre><h4 id="在VSCode中使用"><a href="#在VSCode中使用" class="headerlink" title="在VSCode中使用"></a>在VSCode中使用</h4><p>在VSCode中，默认有可能并不识别 <code>.vue</code> 文件，你需要做如下配置。</p><pre><code>文件 =&gt; 首选项 =&gt; 设置 做如下配置，便可支持ESLint检测 .vue 文件{    &quot;eslint.validate&quot;: [        &quot;javascript&quot;,        &quot;javascriptreact&quot;,        &quot;html&quot;,        &quot;vue&quot;    ]}</code></pre><h2 id="Testing"><a href="#Testing" class="headerlink" title="Testing"></a>Testing</h2><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">test</span></code></pre><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="http://alloyteam.github.io/CodeGuide" target="_blank" rel="external">Alloyteam Code Guide</a></li><li><a href="http://eslint.org/docs/user-guide/configuring" target="_blank" rel="external">ESlint Code Guide</a></li><li><a href="http://eslint.org/docs/developer-guide/shareable-configs" target="_blank" rel="external">ESlint Shareable Config</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      我们依据以下三条原则，研读了 ESLint 所有的配置项，定制出了心目中的「完美」ESLint 配置。
+    
+    </summary>
+    
+      <category term="Programmer" scheme="http://blog.xcatliu.com/categories/Programmer/"/>
+    
+    
+      <category term="V2EX" scheme="http://blog.xcatliu.com/tags/V2EX/"/>
+    
+      <category term="ESLint" scheme="http://blog.xcatliu.com/tags/ESLint/"/>
+    
+      <category term="Config" scheme="http://blog.xcatliu.com/tags/Config/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>码字 md 发布 v2 啦</title>
+    <link href="http://blog.xcatliu.com/2017/07/17/mazimd_v2/"/>
+    <id>http://blog.xcatliu.com/2017/07/17/mazimd_v2/</id>
+    <published>2017-07-16T16:00:00.000Z</published>
+    <updated>2017-09-25T13:35:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>发表在 V2EX 上：<a href="https://www.v2ex.com/t/371914" target="_blank" rel="external">https://www.v2ex.com/t/371914</a></p></blockquote><ul><li>Online demo: <a href="http://mazimd.com/pages/new" target="_blank" rel="external">http://mazimd.com/pages/new</a></li><li>GitHub mazimd: <a href="https://github.com/xcatliu/mazimd" target="_blank" rel="external">https://github.com/xcatliu/mazimd</a></li><li>GitHub mazimd-api: <a href="https://github.com/xcatliu/mazimd-api" target="_blank" rel="external">https://github.com/xcatliu/mazimd-api</a></li></ul><h2 id="什么是码字-md"><a href="#什么是码字-md" class="headerlink" title="什么是码字 md"></a>什么是码字 md</h2><p>码字 md 是一个在线 markdown 编辑器，自发布以来一直收到很多好评：</p><p>前帖：<a href="/2017/01/01/mazimd">码字 md - 干净精致的 Markdown 编辑器</a></p><h2 id="码字-md-v2-更新内容"><a href="#码字-md-v2-更新内容" class="headerlink" title="码字 md v2 更新内容"></a>码字 md v2 更新内容</h2><h3 id="已完成"><a href="#已完成" class="headerlink" title="已完成"></a>已完成</h3><ul><li style="list-style: none"><input type="checkbox" checked> 支持永久保存</li><li style="list-style: none"><input type="checkbox" checked> 支持衍生</li></ul><h3 id="TODOs"><a href="#TODOs" class="headerlink" title="TODOs"></a>TODOs</h3><ul><li style="list-style: none"><input type="checkbox"> 支持包含过期时间的保存</li><li style="list-style: none"><input type="checkbox"> 支持主题选择</li><li style="list-style: none"><input type="checkbox"> 支持创建主题</li><li style="list-style: none"><input type="checkbox"> 支持 https</li></ul><h3 id="不会有的-feature"><a href="#不会有的-feature" class="headerlink" title="不会有的 feature"></a>不会有的 feature</h3><ul><li>码字 md 用完即走，所以不会有账户系统</li><li>码字 md 没有账户系统，所以不能对已发布的内容修改</li></ul><h2 id="刚上线，请别玩坏了"><a href="#刚上线，请别玩坏了" class="headerlink" title="刚上线，请别玩坏了"></a>刚上线，请别玩坏了</h2><p>请留言建议</p><p>时间有限，开发进度很慢，感兴趣的同学一起来开发玩呀</p>]]></content>
+    
+    <summary type="html">
+    
+      码字 md 是一个在线 markdown 编辑器，自发布以来一直收到很多好评
+    
+    </summary>
+    
+      <category term="Programmer" scheme="http://blog.xcatliu.com/categories/Programmer/"/>
+    
+    
+      <category term="V2EX" scheme="http://blog.xcatliu.com/tags/V2EX/"/>
+    
+      <category term="mazimd" scheme="http://blog.xcatliu.com/tags/mazimd/"/>
+    
+      <category term="Markdown" scheme="http://blog.xcatliu.com/tags/Markdown/"/>
+    
+  </entry>
+  
+  <entry>
     <title>GitHub 上的测试覆盖率</title>
-    <link href="http://blog.xcatliu.com/2017/03/04/test_coverage_for_github/"/>
-    <id>http://blog.xcatliu.com/2017/03/04/test_coverage_for_github/</id>
-    <published>2017-03-04T06:11:37.000Z</published>
-    <updated>2017-09-24T03:24:52.000Z</updated>
+    <link href="http://blog.xcatliu.com/2017/03/12/test_coverage_for_github/"/>
+    <id>http://blog.xcatliu.com/2017/03/12/test_coverage_for_github/</id>
+    <published>2017-03-12T08:27:05.000Z</published>
+    <updated>2017-09-25T13:35:53.000Z</updated>
     
     <content type="html"><![CDATA[<p>开源项目的 README.md 中，一般都会在前面放上一些 badge，除了可以让读者快速的了解项目的一些信息以外，还为 README.md 添加了些许色彩。以 <a href="https://github.com/xcatliu/pagic" target="_blank" rel="external">Pagic</a> 为例：</p><p><img src="/assets/test_coverage_for_github/pagic.png" alt="pagic test coverage"></p><ul><li>上图中的 <code>build passing</code> 表示 <a href="https://travis-ci.org/xcatliu/pagic" target="_blank" rel="external">travis</a> build 通过了，用绿色背景显示，表明很安全。</li><li><code>npm v0.4.1</code> 表示最新版本是 <code>v0.4.1</code>，用橙色背景显示，表明是不稳定的版本。</li><li><code>downloads 165/month</code> 表示最近一个月 npm 里的下载数量为 165 次，用黄绿色背景显示，表明 165 次已经比较多了，但是还不算最好的成绩。</li><li><code>coverage 100%</code> 表示测试覆盖率达到了 100%，用绿色背景显示，表明很安全。</li></ul><p>介绍 GitHub 与 Travis CI 结合的文章已经很多了，本篇文章主要介绍一下测试覆盖率的概念以及如何将测试覆盖率的 badge 添加到 README.md 中。</p><h2 id="统一-badge"><a href="#统一-badge" class="headerlink" title="统一 badge"></a>统一 badge</h2><p>首先，为了使 badge 显示统一，我建议使用 <a href="http://shields.io" target="_blank" rel="external">http://shields.io</a> 添加 badge，它集成了大部分可能用到的 badge，使显示的样式一致了。</p><p>使用方式也很简单，比如 Pagic 的 Travis 的 badge 在 README.md 中就是：</p><pre class=" language-md"><code class="language-md">[![Build Status](https://img.shields.io/travis/xcatliu/pagic.svg)](https://travis-ci.org/xcatliu/pagic)</code></pre><p>其他的 badge 可以参考 <a href="http://shields.io" target="_blank" rel="external">http://shields.io</a> 里的说明添加即可。</p><h2 id="测试覆盖率"><a href="#测试覆盖率" class="headerlink" title="测试覆盖率"></a>测试覆盖率</h2><p>顾名思义，测试覆盖率就是运行的测试覆盖了多少代码里的逻辑。</p><p>这里我们使用 <a href="https://github.com/gotwarlost/istanbul" target="_blank" rel="external">Istanbul</a> 这个工具来检测代码的测试覆盖率。</p><p>因为我们需要在 Travis 中运行测试覆盖率的检测，所以我们需要在项目中安装 Istanbul，而不是在全局安装:</p><pre class=" language-shell"><code class="language-shell">npm install istanbul --save-dev</code></pre><p>然后在 <code>package.json</code> 中的 <code>scripts</code> 里添加：</p><pre class=" language-json"><code class="language-json"><span class="token property">"cover"</span><span class="token operator">:</span> <span class="token string">"istanbul cover node_modules/mocha/bin/_mocha"</span></code></pre><p>这个命令用于生成测试覆盖率报告，它也可以在本地运行，也可以在 Travis 里运行：</p><pre class=" language-shell"><code class="language-shell">npm run cover</code></pre><p>它将会先执行测试，然后生成一个 <code>coverage</code> 目录，里面有测试覆盖率报告，其中的 html 文件可以直接打开查看。当然运行的结果也会在终端中显示出来：</p><pre class=" language-shell"><code class="language-shell">  Pagic    constructor()      ✓ should have config and plugins  ...  getLayout    ✓ should return null if findParentDir returns null    ✓ should return layout result  27 passing (64ms)=============================================================================Writing coverage object [/Users/xcatliu/Workspace/pagic/coverage/coverage.json]Writing coverage reports at [/Users/xcatliu/Workspace/pagic/coverage]============================================================================================================ Coverage summary ===============================Statements   : 100% ( 73/73 )Branches     : 100% ( 12/12 )Functions    : 100% ( 10/10 )Lines        : 100% ( 72/72 )================================================================================</code></pre><h2 id="将测试覆盖率报告提交给-Coveralls"><a href="#将测试覆盖率报告提交给-Coveralls" class="headerlink" title="将测试覆盖率报告提交给 Coveralls"></a>将测试覆盖率报告提交给 Coveralls</h2><p><a href="https://coveralls.io/" target="_blank" rel="external">Coveralls</a> 用于收集测试覆盖率报告，对于开源项目免费。我们的 badge 也是 Coveralls 提供的数据。</p><p>Coveralls 可以使用 GitHub 账号登录，登录之后可以<a href="https://coveralls.io/repos/new" target="_blank" rel="external">在这里</a>添加需要收集报告的 repo，那么我们如何将测试覆盖率报告通过 Travis CI 提交给 Coveralls 呢？</p><p>首先需要安装 <code>coveralls</code>：</p><pre class=" language-shell"><code class="language-shell">npm install coveralls --save-dev</code></pre><p>然后在 <code>package.json</code> 中的 <code>scripts</code> 里添加：</p><pre class=" language-json"><code class="language-json"><span class="token property">"coveralls"</span><span class="token operator">:</span> "npm run cover -- --report lcovonly &amp;&amp; cat ./coverage/lcov.info | coveralls"</code></pre><p>然后在 <code>.travis.yml</code> 中添加：</p><pre class=" language-yml"><code class="language-yml">after_success:- npm run coveralls</code></pre><p>一个完整的 <code>.travis.yml</code> 如下：</p><pre class=" language-yml"><code class="language-yml">language: node_jsnode_js:- 6branches:  only:  - masterinstall:- npm installscript:- npm testafter_success:- npm run coveralls</code></pre><p>那么下一次提交代码的时候就会将测试覆盖率报告提交给 Coveralls 啦，别忘了在 README.md 中添加 badge 哦：</p><pre class=" language-md"><code class="language-md">[![Coveralls](https://img.shields.io/coveralls/xcatliu/pagic.svg)](https://coveralls.io/github/xcatliu/pagic)</code></pre>]]></content>
     
@@ -31,7 +145,7 @@
     
     </summary>
     
-      <category term="程序员" scheme="http://blog.xcatliu.com/categories/%E7%A8%8B%E5%BA%8F%E5%91%98/"/>
+      <category term="Programmer" scheme="http://blog.xcatliu.com/categories/Programmer/"/>
     
     
       <category term="GitHub" scheme="http://blog.xcatliu.com/tags/GitHub/"/>
@@ -39,113 +153,6 @@
       <category term="Coverage" scheme="http://blog.xcatliu.com/tags/Coverage/"/>
     
       <category term="Test" scheme="http://blog.xcatliu.com/tags/Test/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>三分钟创建一个简单精致的 About Me 页面</title>
-    <link href="http://blog.xcatliu.com/2017/02/13/about_me/"/>
-    <id>http://blog.xcatliu.com/2017/02/13/about_me/</id>
-    <published>2017-02-13T12:03:15.000Z</published>
-    <updated>2017-09-24T03:42:57.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>通过 Fork 一个仓库，创建基于 GitHub Pages 的 About Me 页面。</p></blockquote><a id="more"></a><p>一个「About Me」页面，能够使别人快速的对你有一个大致的了解。</p><p>使用 GitHub 提供的 Pages 服务，可以将静态的网页托管在 GitHub 上。而 GitHub Pages 默认的 Jekyll 使得静态网页得以很方便的配置化。</p><p>我的 About Me 页面精雕细琢，并且页面的内容均提取成 yaml 配置文件，使大家可以简单几步就创建自己的 About Me 页面。</p><ul><li><a href="http://xcatliu.com/" target="_blank" rel="external">Live Demo</a></li><li><a href="https://github.com/xcatliu/xcatliu.github.io" target="_blank" rel="external">GitHub</a></li></ul><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ol><li>托管在 GitHub Pages 上，不需要服务器，不需要注册域名（也可以绑定自己的域名）</li><li>使用 GitHub Pages 上的 Jekyll 自动构建，不需要任何学习成本</li><li>所有内容均配置化，一看就知道如何修改</li><li>GitHub Repos 的信息会自动抓取</li><li>适配了桌面端和移动端，简单精致</li></ol><h2 id="创建自己的页面"><a href="#创建自己的页面" class="headerlink" title="创建自己的页面"></a>创建自己的页面</h2><blockquote><p>注意，下面使用 <code>${}</code> 包装的部分需要替换为你自己的内容</p></blockquote><ol><li>Fork <a href="https://github.com/xcatliu/xcatliu.github.io" target="_blank" rel="external">这个仓库</a></li><li>将仓库名更新为 <code>${YOUR_GITHUB_ID}.github.io</code></li><li>更新 <code>CNAME</code> 为 <code>${YOUR_DOMAIN}</code>，并且在域名的 DNS Records 中，为它添加一个 CNAME 记录指向 <code>${YOUR_GITHUB_ID}.github.io</code>（如果你没有域名，将此文件留空即可）</li><li>更新 <code>_config.yml</code> 以及 <code>assets/img/</code> 中的图片资源</li><li>打开 <code>${YOUR_DOMAIN}</code> 看看吧！（如果你没有域名，请打开 <code>${YOUR_GITHUB_ID}.github.io</code>）</li></ol><p>来创建自己的 About Me 页面吧！</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;通过 Fork 一个仓库，创建基于 GitHub Pages 的 About Me 页面。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="程序员" scheme="http://blog.xcatliu.com/categories/%E7%A8%8B%E5%BA%8F%E5%91%98/"/>
-    
-    
-      <category term="About" scheme="http://blog.xcatliu.com/tags/About/"/>
-    
-      <category term="GitHub" scheme="http://blog.xcatliu.com/tags/GitHub/"/>
-    
-      <category term="Jekyll" scheme="http://blog.xcatliu.com/tags/Jekyll/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>晒键盘 - FILCO 87 双模忍者圣手二代 黑色青轴</title>
-    <link href="http://blog.xcatliu.com/2017/01/29/flico/"/>
-    <id>http://blog.xcatliu.com/2017/01/29/flico/</id>
-    <published>2017-01-29T09:45:51.000Z</published>
-    <updated>2017-09-24T03:25:25.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>发表在 V2EX 上：<a href="https://www.v2ex.com/t/337333" target="_blank" rel="external">https://www.v2ex.com/t/337333</a></p></blockquote><p>关注了很久，这款键盘终于又有货了！</p><p>没抢到什么优惠券，狠下心还是入手了。</p><p>目前用起来还不错，比 2016 mbp 13 寸大一些。</p><p><img src="/assets/flico/FLICO-01.jpeg" alt="FLICO-01"><br><img src="/assets/flico/FLICO-02.jpeg" alt="FLICO-02"><br><img src="/assets/flico/FLICO-03.jpeg" alt="FLICO-03"><br><img src="/assets/flico/FLICO-04.jpeg" alt="FLICO-04"><br><img src="/assets/flico/FLICO-05.jpeg" alt="FLICO-05"><br><img src="/assets/flico/FLICO-06.jpeg" alt="FLICO-06"><br><img src="/assets/flico/FLICO-07.jpeg" alt="FLICO-07"></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;img alt=&quot;FLICO-05&quot; src=&quot;/assets/flico/FLICO-05.jpeg&quot; /&gt;
-    
-    </summary>
-    
-      <category term="生活" scheme="http://blog.xcatliu.com/categories/%E7%94%9F%E6%B4%BB/"/>
-    
-    
-      <category term="Flico" scheme="http://blog.xcatliu.com/tags/Flico/"/>
-    
-      <category term="Keyboard" scheme="http://blog.xcatliu.com/tags/Keyboard/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>随手撸了个测试屏幕坏点的网页</title>
-    <link href="http://blog.xcatliu.com/2017/01/19/full_color_screen/"/>
-    <id>http://blog.xcatliu.com/2017/01/19/full_color_screen/</id>
-    <published>2017-01-18T16:19:30.000Z</published>
-    <updated>2017-09-24T03:24:52.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>发表在 V2EX 上：<a href="https://www.v2ex.com/t/335504" target="_blank" rel="external">https://www.v2ex.com/t/335504</a></p></blockquote><p>新入手的 MacBook Pro 需要测试屏幕坏点，随手撸了一个，需要的人拿去吧~</p><p>GitHub: <a href="https://github.com/hack1day/full-color-screen" target="_blank" rel="external">https://github.com/hack1day/full-color-screen</a></p><h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><ul><li>Open <a href="http://full-color-screen.hack1day.com" target="_blank" rel="external">http://full-color-screen.hack1day.com</a></li><li>Press <code>SPACE</code> or <code>ENTER</code> or <em>click anywhere</em> to <strong>switch colors</strong></li><li>Press <code>H</code> or <em>click top-left corner</em> to <strong>toggle help</strong></li><li>Press <code>F</code> or <em>click top-right corner</em> to <strong>toggle fullscreen</strong></li></ul><p>手机适配没有做，等下次需要测试手机的时候再做吧。</p><p>发现一个作死的玩法，按住空格不动。。。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;发表在 V2EX 上：&lt;a href=&quot;https://www.v2ex.com/t/335504&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.v2ex.com/t/335504&lt;/a&gt;&lt;/p&gt;
-&lt;/bl
-      
-    
-    </summary>
-    
-      <category term="程序员" scheme="http://blog.xcatliu.com/categories/%E7%A8%8B%E5%BA%8F%E5%91%98/"/>
-    
-    
-      <category term="V2EX" scheme="http://blog.xcatliu.com/tags/V2EX/"/>
-    
-      <category term="Hack1day" scheme="http://blog.xcatliu.com/tags/Hack1day/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>我写的第一本书《TypeScript 入门教程》</title>
-    <link href="http://blog.xcatliu.com/2017/01/17/my_first_book/"/>
-    <id>http://blog.xcatliu.com/2017/01/17/my_first_book/</id>
-    <published>2017-01-17T09:05:54.000Z</published>
-    <updated>2017-09-24T03:38:44.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>持续了大半年的学习和写作，在今天终于告一段落了。</p><a id="more"></a><h2 id="写书之旅"><a href="#写书之旅" class="headerlink" title="写书之旅"></a>写书之旅</h2><p>最初有写书的想法，是刚加入微软的时候。</p><p>由于工作中需要重度使用 TypeScript，所以我花了几天的时间研读了好几遍官方手册和中文翻译版。</p><p>对于一个把 OOP 早就还给老师的人，有些概念并不是很好理解，再加上官方手册跳跃般的学习曲线，我觉得我可以抓住这次学习的机会，把整个学习的过程总结下来。</p><p>一开始，取名为《From JavaScript to TypeScript》，寓意此书的作者并不是 TypeScript 的专家，而是一个新手。</p><p>其实这不一定是个劣势，因为有些坑，只有新手才能理解。我希望尽可能的还原第一次学习的场景，帮助大家更容易的理解 TypeScript。</p><p>于是，我开始了我的写书之旅。</p><h2 id="写书不易"><a href="#写书不易" class="headerlink" title="写书不易"></a>写书不易</h2><p>要说写书的感受，那真是太不容易了。</p><p>理解一个知识，和能够讲出来让别人理解完全是两码事。</p><p>而我又是一个强迫症患者。</p><ul><li>为了方便查阅，添加了非常多引用</li><li>为了一个措辞，会修订很多次</li><li>为了能循序渐进的理解，调整了多次顺序</li></ul><p>最难的还是在于坚持，一开始还会觉得挺有意思挺新鲜，慢慢的就会很枯燥乏味，无数次的回头重读之前写的，无数次的修改。</p><p>我收获的不只是对 TypeScript 理解的加深，而更是一份坚持的毅力和勇气吧。</p><p>再之后捧起别人写的书，都会油然而生一股敬意。</p><p>想必那一定也是比我付出更多百倍的精力才能写出来的了。</p><h2 id="《TypeScript-入门教程》介绍"><a href="#《TypeScript-入门教程》介绍" class="headerlink" title="《TypeScript 入门教程》介绍"></a>《TypeScript 入门教程》介绍</h2><p>从 JavaScript 程序员的角度总结思考，循序渐进的理解 TypeScript。</p><blockquote><p>原名《From JavaScript to TypeScript》</p></blockquote><ul><li><a href="https://ts.xcatliu.com/" target="_blank" rel="external">在线阅读</a>（部署在 <a href="https://www.gitbook.com/book/xcatliu/typescript-tutorial/details" target="_blank" rel="external">GitBook</a> 上，可能需要翻墙）</li><li><a href="https://github.com/xcatliu/typescript-tutorial/blob/master/README.md" target="_blank" rel="external">在线阅读（GitHub 版）</a></li><li><a href="https://github.com/xcatliu/typescript-tutorial" target="_blank" rel="external">GitHub 地址</a></li><li>作者：<a href="https://github.com/xcatliu/" target="_blank" rel="external">xcatliu</a></li><li>字数统计：约 6 万字（直接统计的字符数）</li></ul><p>更多介绍请<a href="https://github.com/xcatliu/typescript-tutorial" target="_blank" rel="external">进入 GitHub</a> 查看。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;持续了大半年的学习和写作，在今天终于告一段落了。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="程序员" scheme="http://blog.xcatliu.com/categories/%E7%A8%8B%E5%BA%8F%E5%91%98/"/>
-    
-    
-      <category term="TypeScript" scheme="http://blog.xcatliu.com/tags/TypeScript/"/>
-    
-      <category term="Tutorial" scheme="http://blog.xcatliu.com/tags/Tutorial/"/>
-    
-      <category term="Book" scheme="http://blog.xcatliu.com/tags/Book/"/>
     
   </entry>
   
