@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.xcatliu.com/"/>
-  <updated>2017-09-25T13:35:53.000Z</updated>
+  <updated>2017-09-26T00:39:25.000Z</updated>
   <id>http://blog.xcatliu.com/</id>
   
   <author>
@@ -17,13 +17,42 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>How to Get Changelist in Git Push Hook</title>
+    <link href="http://blog.xcatliu.com/2017/09/25/how-to-get-changelist-in-git-push-hook/"/>
+    <id>http://blog.xcatliu.com/2017/09/25/how-to-get-changelist-in-git-push-hook/</id>
+    <published>2017-09-25T15:50:36.000Z</published>
+    <updated>2017-09-26T00:39:25.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Git hooks is a useful tool to run scripts before or after events. We usually use it to check the format of commit message, prevent pushing code to master branch, or run test scripts before pushing.</p><p>Sometimes we need to get the changelist is pre-push hook. It may not be as easy as you think – it’s hard to know how many commits you have been submitted since you last checking out to the new branch.</p><p>After some investigation, I’ve found a way to get the diff file list between the current <code>HEAD</code> and <code>origin/master</code>:</p><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># Find the common ancestor of current hash and origin/master</span><span class="token comment" spellcheck="true"># https://stackoverflow.com/questions/1549146/find-common-ancestor-of-two-git-branches</span><span class="token comment" spellcheck="true"># Command inside `` will be executed and pass to the variable</span>common_ancestor<span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">git</span> merge-base HEAD origin/master<span class="token variable">`</span></span><span class="token comment" spellcheck="true"># --diff-filter=ACMRT Only show files which is appended, copied, modified, renamed or type-changed</span>changelist<span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">git</span> <span class="token function">diff</span> $common_ancestor HEAD --name-only --diff-filter<span class="token operator">=</span>ACMRT<span class="token variable">`</span></span></code></pre><p>Posted in <a href="https://gist.github.com/xcatliu/ddc2aec4e4cde0824429477f7ea233cd" target="_blank" rel="external">gist</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Git hooks is a useful tool to run scripts before or after events. We usually use it to check the format of commit message, prevent pushin
+      
+    
+    </summary>
+    
+      <category term="Programmer" scheme="http://blog.xcatliu.com/categories/Programmer/"/>
+    
+    
+      <category term="Git" scheme="http://blog.xcatliu.com/tags/Git/"/>
+    
+      <category term="Git Hooks" scheme="http://blog.xcatliu.com/tags/Git-Hooks/"/>
+    
+      <category term="en" scheme="http://blog.xcatliu.com/tags/en/"/>
+    
+  </entry>
+  
+  <entry>
     <title>运行一个脚本，看看你的项目的代码质量吧</title>
     <link href="http://blog.xcatliu.com/2017/09/20/cqc/"/>
     <id>http://blog.xcatliu.com/2017/09/20/cqc/</id>
     <published>2017-09-19T16:00:00.000Z</published>
-    <updated>2017-09-25T13:35:53.000Z</updated>
+    <updated>2017-09-26T00:39:25.000Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>发表在 V2EX 上：<a href="https://www.v2ex.com/t/392337" target="_blank" rel="external">https://www.v2ex.com/t/392337</a></p></blockquote><ul><li>GitHub: <a href="https://github.com/xcatliu/cqc" target="_blank" rel="external">https://github.com/xcatliu/cqc</a></li></ul><p>代码质量有很多指标：</p><ol><li>源代码行数</li><li>代码重复率</li><li>圈复杂度</li><li>报错量（ Bug 数）占比</li><li>测试覆盖率</li><li>开发约束（代码块行数等）</li></ol><p>我做了一个脚本可以测出上面的 1, 2, 3</p><p>大家都来试一试吧！</p><h2 id="Supported-Languages"><a href="#Supported-Languages" class="headerlink" title="Supported Languages"></a>Supported Languages</h2><ul><li>js, jsx</li><li>css, less, scss, sass, styl</li></ul><h2 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h2><h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><pre class=" language-sh"><code class="language-sh">npm install -g cqc</code></pre><h3 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h3><pre class=" language-sh"><code class="language-sh">cqc src/**/*.js src/**/*.jsx</code></pre><p>Output:</p><pre><code>Number of files:        9Source lines of code:   463Duplicate rate:         15.71%High complexity rate:   11.11%Max complexity:         19</code></pre>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>发表在 V2EX 上：<a href="https://www.v2ex.com/t/392337" target="_blank" rel="external">https://www.v2ex.com/t/392337</a></p></blockquote><ul><li>GitHub: <a href="https://github.com/xcatliu/cqc" target="_blank" rel="external">https://github.com/xcatliu/cqc</a></li></ul><p>代码质量有很多指标：</p><ol><li>源代码行数</li><li>代码重复率</li><li>圈复杂度</li><li>报错量（ Bug 数）占比</li><li>测试覆盖率</li><li>开发约束（代码块行数等）</li></ol><p>我做了一个脚本可以测出上面的 1, 2, 3</p><p>大家都来试一试吧！</p><h2 id="Supported-Languages"><a href="#Supported-Languages" class="headerlink" title="Supported Languages"></a>Supported Languages</h2><ul><li>js, jsx</li><li>css, less, scss, sass, styl</li></ul><h2 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h2><h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> -g cqc</code></pre><h3 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h3><pre class=" language-bash"><code class="language-bash">cqc src/**/*.js src/**/*.jsx</code></pre><p>Output:</p><pre><code>Number of files:        9Source lines of code:   463Duplicate rate:         15.71%High complexity rate:   11.11%Max complexity:         19</code></pre>]]></content>
     
     <summary type="html">
     
@@ -127,32 +156,6 @@
       <category term="mazimd" scheme="http://blog.xcatliu.com/tags/mazimd/"/>
     
       <category term="Markdown" scheme="http://blog.xcatliu.com/tags/Markdown/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>GitHub 上的测试覆盖率</title>
-    <link href="http://blog.xcatliu.com/2017/03/12/test_coverage_for_github/"/>
-    <id>http://blog.xcatliu.com/2017/03/12/test_coverage_for_github/</id>
-    <published>2017-03-12T08:27:05.000Z</published>
-    <updated>2017-09-25T13:35:53.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>开源项目的 README.md 中，一般都会在前面放上一些 badge，除了可以让读者快速的了解项目的一些信息以外，还为 README.md 添加了些许色彩。以 <a href="https://github.com/xcatliu/pagic" target="_blank" rel="external">Pagic</a> 为例：</p><p><img src="/assets/test_coverage_for_github/pagic.png" alt="pagic test coverage"></p><ul><li>上图中的 <code>build passing</code> 表示 <a href="https://travis-ci.org/xcatliu/pagic" target="_blank" rel="external">travis</a> build 通过了，用绿色背景显示，表明很安全。</li><li><code>npm v0.4.1</code> 表示最新版本是 <code>v0.4.1</code>，用橙色背景显示，表明是不稳定的版本。</li><li><code>downloads 165/month</code> 表示最近一个月 npm 里的下载数量为 165 次，用黄绿色背景显示，表明 165 次已经比较多了，但是还不算最好的成绩。</li><li><code>coverage 100%</code> 表示测试覆盖率达到了 100%，用绿色背景显示，表明很安全。</li></ul><p>介绍 GitHub 与 Travis CI 结合的文章已经很多了，本篇文章主要介绍一下测试覆盖率的概念以及如何将测试覆盖率的 badge 添加到 README.md 中。</p><h2 id="统一-badge"><a href="#统一-badge" class="headerlink" title="统一 badge"></a>统一 badge</h2><p>首先，为了使 badge 显示统一，我建议使用 <a href="http://shields.io" target="_blank" rel="external">http://shields.io</a> 添加 badge，它集成了大部分可能用到的 badge，使显示的样式一致了。</p><p>使用方式也很简单，比如 Pagic 的 Travis 的 badge 在 README.md 中就是：</p><pre class=" language-md"><code class="language-md">[![Build Status](https://img.shields.io/travis/xcatliu/pagic.svg)](https://travis-ci.org/xcatliu/pagic)</code></pre><p>其他的 badge 可以参考 <a href="http://shields.io" target="_blank" rel="external">http://shields.io</a> 里的说明添加即可。</p><h2 id="测试覆盖率"><a href="#测试覆盖率" class="headerlink" title="测试覆盖率"></a>测试覆盖率</h2><p>顾名思义，测试覆盖率就是运行的测试覆盖了多少代码里的逻辑。</p><p>这里我们使用 <a href="https://github.com/gotwarlost/istanbul" target="_blank" rel="external">Istanbul</a> 这个工具来检测代码的测试覆盖率。</p><p>因为我们需要在 Travis 中运行测试覆盖率的检测，所以我们需要在项目中安装 Istanbul，而不是在全局安装:</p><pre class=" language-shell"><code class="language-shell">npm install istanbul --save-dev</code></pre><p>然后在 <code>package.json</code> 中的 <code>scripts</code> 里添加：</p><pre class=" language-json"><code class="language-json"><span class="token property">"cover"</span><span class="token operator">:</span> <span class="token string">"istanbul cover node_modules/mocha/bin/_mocha"</span></code></pre><p>这个命令用于生成测试覆盖率报告，它也可以在本地运行，也可以在 Travis 里运行：</p><pre class=" language-shell"><code class="language-shell">npm run cover</code></pre><p>它将会先执行测试，然后生成一个 <code>coverage</code> 目录，里面有测试覆盖率报告，其中的 html 文件可以直接打开查看。当然运行的结果也会在终端中显示出来：</p><pre class=" language-shell"><code class="language-shell">  Pagic    constructor()      ✓ should have config and plugins  ...  getLayout    ✓ should return null if findParentDir returns null    ✓ should return layout result  27 passing (64ms)=============================================================================Writing coverage object [/Users/xcatliu/Workspace/pagic/coverage/coverage.json]Writing coverage reports at [/Users/xcatliu/Workspace/pagic/coverage]============================================================================================================ Coverage summary ===============================Statements   : 100% ( 73/73 )Branches     : 100% ( 12/12 )Functions    : 100% ( 10/10 )Lines        : 100% ( 72/72 )================================================================================</code></pre><h2 id="将测试覆盖率报告提交给-Coveralls"><a href="#将测试覆盖率报告提交给-Coveralls" class="headerlink" title="将测试覆盖率报告提交给 Coveralls"></a>将测试覆盖率报告提交给 Coveralls</h2><p><a href="https://coveralls.io/" target="_blank" rel="external">Coveralls</a> 用于收集测试覆盖率报告，对于开源项目免费。我们的 badge 也是 Coveralls 提供的数据。</p><p>Coveralls 可以使用 GitHub 账号登录，登录之后可以<a href="https://coveralls.io/repos/new" target="_blank" rel="external">在这里</a>添加需要收集报告的 repo，那么我们如何将测试覆盖率报告通过 Travis CI 提交给 Coveralls 呢？</p><p>首先需要安装 <code>coveralls</code>：</p><pre class=" language-shell"><code class="language-shell">npm install coveralls --save-dev</code></pre><p>然后在 <code>package.json</code> 中的 <code>scripts</code> 里添加：</p><pre class=" language-json"><code class="language-json"><span class="token property">"coveralls"</span><span class="token operator">:</span> "npm run cover -- --report lcovonly &amp;&amp; cat ./coverage/lcov.info | coveralls"</code></pre><p>然后在 <code>.travis.yml</code> 中添加：</p><pre class=" language-yml"><code class="language-yml">after_success:- npm run coveralls</code></pre><p>一个完整的 <code>.travis.yml</code> 如下：</p><pre class=" language-yml"><code class="language-yml">language: node_jsnode_js:- 6branches:  only:  - masterinstall:- npm installscript:- npm testafter_success:- npm run coveralls</code></pre><p>那么下一次提交代码的时候就会将测试覆盖率报告提交给 Coveralls 啦，别忘了在 README.md 中添加 badge 哦：</p><pre class=" language-md"><code class="language-md">[![Coveralls](https://img.shields.io/coveralls/xcatliu/pagic.svg)](https://coveralls.io/github/xcatliu/pagic)</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      介绍 GitHub 与 Travis CI 结合的文章已经很多了，本篇文章主要介绍一下测试覆盖率的概念以及如何将测试覆盖率的 badge 添加到 README.md 中。
-    
-    </summary>
-    
-      <category term="Programmer" scheme="http://blog.xcatliu.com/categories/Programmer/"/>
-    
-    
-      <category term="GitHub" scheme="http://blog.xcatliu.com/tags/GitHub/"/>
-    
-      <category term="Coverage" scheme="http://blog.xcatliu.com/tags/Coverage/"/>
-    
-      <category term="Test" scheme="http://blog.xcatliu.com/tags/Test/"/>
     
   </entry>
   

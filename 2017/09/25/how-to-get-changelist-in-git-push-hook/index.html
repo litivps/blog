@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="/css/theme.css">
 
   
-    <meta name="keywords" content="V2EX, Quality, Complexity" />
+    <meta name="keywords" content="Git, Git Hooks, en" />
   
 
   
@@ -29,19 +29,19 @@
     <link rel="shortcut icon" href="/favicon.ico">
   
 
-  <title>运行一个脚本，看看你的项目的代码质量吧 - 流浪小猫的博客</title>
+  <title>How to Get Changelist in Git Push Hook - 流浪小猫的博客</title>
 <link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
 
   <body class="theme-body">
     <div class="flex-center theme-header-wrapper">
   <div class="container flex-left units-gap theme-header-container">
-    <a href="/" class="unit-0 theme-header-icon theme-icon-link" title="首页">
+    <a href="/" class="unit-0 theme-header-icon theme-icon-link" title="Home">
       <i class="czs-home-l"></i>
     </a>
     <div class="flex-center text-center flex-middle unit theme-header-title theme-header-title-no-transition">
       流浪小猫的博客
     </div>
-    <a class="unit-0 theme-header-icon theme-icon-link theme-header-sidebar-icon" href="javascript:void(0);" title="更多">
+    <a class="unit-0 theme-header-icon theme-icon-link theme-header-sidebar-icon" href="javascript:void(0);" title="More">
       <i class="czs-menu-l"></i>
     </a>
   </div>
@@ -52,12 +52,12 @@
       <div class="container">
         <article>
   <h1 class="text-center">
-    运行一个脚本，看看你的项目的代码质量吧
+    How to Get Changelist in Git Push Hook
   </h1>
   <div class="text-center top-gap">
     <div class="text-small text-muted">
-  <time datetime="2017-09-20T00:00:00+08:00">
-    2017-09-20
+  <time datetime="2017-09-25T23:50:36+08:00">
+    2017-09-25
   </time>
   <span class="theme-separator">·</span>
   <i class="czs-user-l"></i>
@@ -68,51 +68,31 @@
   <span class="theme-comment-count-container theme-hide theme-comment-count-container-transparent">
     <span class="theme-separator">·</span>
     <i class="czs-comment-l"></i>
-    <a class="text-muted theme-text-no-decoration theme-comment-count" data-disqus-identifier="2017/09/20/cqc/" href="/2017/09/20/cqc/#disqus_thread"></a>
+    <a class="text-muted theme-text-no-decoration theme-comment-count" data-disqus-identifier="2017/09/25/how-to-get-changelist-in-git-push-hook/" href="/2017/09/25/how-to-get-changelist-in-git-push-hook/#disqus_thread"></a>
   </span>
 </div>
 
   </div>
   <div class="top-gap-big">
-    <blockquote>
-<p>发表在 V2EX 上：<a href="https://www.v2ex.com/t/392337" target="_blank" rel="external">https://www.v2ex.com/t/392337</a></p>
-</blockquote>
-<ul>
-<li>GitHub: <a href="https://github.com/xcatliu/cqc" target="_blank" rel="external">https://github.com/xcatliu/cqc</a></li>
-</ul>
-<p>代码质量有很多指标：</p>
-<ol>
-<li>源代码行数</li>
-<li>代码重复率</li>
-<li>圈复杂度</li>
-<li>报错量（ Bug 数）占比</li>
-<li>测试覆盖率</li>
-<li>开发约束（代码块行数等）</li>
-</ol>
-<p>我做了一个脚本可以测出上面的 1, 2, 3</p>
-<p>大家都来试一试吧！</p>
-<h2 id="Supported-Languages"><a href="#Supported-Languages" class="headerlink" title="Supported Languages"></a>Supported Languages</h2><ul>
-<li>js, jsx</li>
-<li>css, less, scss, sass, styl</li>
-</ul>
-<h2 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h2><h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> -g cqc
+    <p>Git hooks is a useful tool to run scripts before or after events. We usually use it to check the format of commit message, prevent pushing code to master branch, or run test scripts before pushing.</p>
+<p>Sometimes we need to get the changelist is pre-push hook. It may not be as easy as you think – it’s hard to know how many commits you have been submitted since you last checking out to the new branch.</p>
+<p>After some investigation, I’ve found a way to get the diff file list between the current <code>HEAD</code> and <code>origin/master</code>:</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># Find the common ancestor of current hash and origin/master</span>
+<span class="token comment" spellcheck="true"># https://stackoverflow.com/questions/1549146/find-common-ancestor-of-two-git-branches</span>
+<span class="token comment" spellcheck="true"># Command inside `` will be executed and pass to the variable</span>
+common_ancestor<span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">git</span> merge-base HEAD origin/master<span class="token variable">`</span></span>
+<span class="token comment" spellcheck="true"># --diff-filter=ACMRT Only show files which is appended, copied, modified, renamed or type-changed</span>
+changelist<span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">git</span> <span class="token function">diff</span> $common_ancestor HEAD --name-only --diff-filter<span class="token operator">=</span>ACMRT<span class="token variable">`</span></span>
 </code></pre>
-<h3 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h3><pre class=" language-bash"><code class="language-bash">cqc src/**/*.js src/**/*.jsx
-</code></pre>
-<p>Output:</p>
-<pre><code>Number of files:        9
-Source lines of code:   463
-Duplicate rate:         15.71%
-High complexity rate:   11.11%
-Max complexity:         19
-</code></pre>
+<p>Posted in <a href="https://gist.github.com/xcatliu/ddc2aec4e4cde0824429477f7ea233cd" target="_blank" rel="external">gist</a></p>
+
   </div>
 </article>
-<blockquote class="top-gap-big"> <p> 本文遵循 <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" class"text-muted">CC BY-ND-ND 3.0</a> 协议，转载请注明原作者，禁止商用，禁止演绎。 </p> </blockquote>
+<blockquote class="top-gap-big"> <p> This article is using the <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en" class"text-muted">CC BY-NC-ND 3.0</a> license. </p> </blockquote>
 <div class="top-gap-big text-center text-muted">
   <small>
     <i class="czs-tag-l"></i>
-    <a class="text-muted" href="/tags/V2EX/">V2EX</a> , <a class="text-muted" href="/tags/Quality/">Quality</a> , <a class="text-muted" href="/tags/Complexity/">Complexity</a>
+    <a class="text-muted" href="/tags/Git/">Git</a> , <a class="text-muted" href="/tags/Git-Hooks/">Git Hooks</a> , <a class="text-muted" href="/tags/en/">en</a>
   </small>
 </div>
 
@@ -124,10 +104,10 @@ Max complexity:         19
       'zh-CN': 'zh'
     };
     var disqus_config = function () {
-      this.language = langMap['zh-CN'] || langMap['en'];
-      this.page.url = 'http://blog.xcatliu.com/2017/09/20/cqc/';
-      this.page.identifier = '2017/09/20/cqc/';
-      this.page.title = '运行一个脚本，看看你的项目的代码质量吧';
+      this.language = langMap['en'] || langMap['en'];
+      this.page.url = 'http://blog.xcatliu.com/2017/09/25/how-to-get-changelist-in-git-push-hook/';
+      this.page.identifier = '2017/09/25/how-to-get-changelist-in-git-push-hook/';
+      this.page.title = 'How to Get Changelist in Git Push Hook';
     };
     (function() {
       var d = document, s = d.createElement('script');
@@ -152,9 +132,9 @@ Max complexity:         19
 
     <br/>
 
-    由 <a class="text-muted" href="https://hexo.io" title="Hexo">Hexo</a> 强力驱动
+    Powered by <a class="text-muted" href="https://hexo.io" title="Hexo">Hexo</a>
     <span class="theme-separator">·</span>
-    主题
+    Theme
     <a class="text-muted" href="https://github.com/xcatliu/hexo-theme-milk">Milk</a>
   </small>
 </p>
@@ -222,7 +202,7 @@ Max complexity:         19
 
           </p>
           
-          <h5>友情链接</h5>
+          <h5>Links</h5>
           <p class="text-muted">
             <small>
               <ul class="theme-list-style-none">

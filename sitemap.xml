@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.xcatliu.com/2017/09/20/cqc/</loc>
+    
+    <lastmod>2017-09-26T00:39:25.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.xcatliu.com/2017/09/25/how-to-get-changelist-in-git-push-hook/</loc>
+    
+    <lastmod>2017-09-26T00:39:25.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.xcatliu.com/links/index.html</loc>
     
     <lastmod>2017-09-25T13:40:12.000Z</lastmod>
@@ -9,21 +23,7 @@
   </url>
   
   <url>
-    <loc>http://blog.xcatliu.com/2015/11/10/javascript_fetch_api/</loc>
-    
-    <lastmod>2017-09-25T13:35:53.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.xcatliu.com/2017/02/13/about_me/</loc>
-    
-    <lastmod>2017-09-25T13:35:53.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.xcatliu.com/2014/10/08/abstract_syntax_tree/</loc>
+    <loc>http://blog.xcatliu.com/2015/11/03/isarray/</loc>
     
     <lastmod>2017-09-25T13:35:53.000Z</lastmod>
     
@@ -44,7 +44,7 @@
   </url>
   
   <url>
-    <loc>http://blog.xcatliu.com/2017/09/20/cqc/</loc>
+    <loc>http://blog.xcatliu.com/2017/01/06/2016_summery/</loc>
     
     <lastmod>2017-09-25T13:35:53.000Z</lastmod>
     
@@ -135,13 +135,6 @@
   </url>
   
   <url>
-    <loc>http://blog.xcatliu.com/2016/10/23/half_year_in_microsoft/</loc>
-    
-    <lastmod>2017-09-25T13:35:53.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://blog.xcatliu.com/2016/12/14/happy-birthday-26/</loc>
     
     <lastmod>2017-09-25T13:35:53.000Z</lastmod>
@@ -149,7 +142,7 @@
   </url>
   
   <url>
-    <loc>http://blog.xcatliu.com/2015/01/01/hello_2015/</loc>
+    <loc>http://blog.xcatliu.com/2016/10/23/half_year_in_microsoft/</loc>
     
     <lastmod>2017-09-25T13:35:53.000Z</lastmod>
     
@@ -163,7 +156,21 @@
   </url>
   
   <url>
+    <loc>http://blog.xcatliu.com/2015/01/01/hello_2015/</loc>
+    
+    <lastmod>2017-09-25T13:35:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.xcatliu.com/2016/06/25/hexo-theme-wiki-i18n/</loc>
+    
+    <lastmod>2017-09-25T13:35:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.xcatliu.com/2017/02/13/about_me/</loc>
     
     <lastmod>2017-09-25T13:35:53.000Z</lastmod>
     
@@ -191,14 +198,14 @@
   </url>
   
   <url>
-    <loc>http://blog.xcatliu.com/2015/11/03/isarray/</loc>
+    <loc>http://blog.xcatliu.com/2016/09/05/600_stars_in_7_days/</loc>
     
     <lastmod>2017-09-25T13:35:53.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.xcatliu.com/2016/09/05/600_stars_in_7_days/</loc>
+    <loc>http://blog.xcatliu.com/2015/11/10/javascript_fetch_api/</loc>
     
     <lastmod>2017-09-25T13:35:53.000Z</lastmod>
     
@@ -268,14 +275,14 @@
   </url>
   
   <url>
-    <loc>http://blog.xcatliu.com/2015/06/20/open_ideas_club/</loc>
+    <loc>http://blog.xcatliu.com/2016/11/12/on_call/</loc>
     
     <lastmod>2017-09-25T13:35:53.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.xcatliu.com/2016/11/12/on_call/</loc>
+    <loc>http://blog.xcatliu.com/2015/06/20/open_ideas_club/</loc>
     
     <lastmod>2017-09-25T13:35:53.000Z</lastmod>
     
@@ -303,13 +310,6 @@
   </url>
   
   <url>
-    <loc>http://blog.xcatliu.com/2016/04/25/setup_linux_workspace_in_windows/</loc>
-    
-    <lastmod>2017-09-25T13:35:53.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://blog.xcatliu.com/2016/05/20/setup_linux_workspace_in_windows_using_hyper-v/</loc>
     
     <lastmod>2017-09-25T13:35:53.000Z</lastmod>
@@ -317,7 +317,21 @@
   </url>
   
   <url>
+    <loc>http://blog.xcatliu.com/2016/04/25/setup_linux_workspace_in_windows/</loc>
+    
+    <lastmod>2017-09-25T13:35:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.xcatliu.com/2013/11/08/the_many_meanings_of_open/</loc>
+    
+    <lastmod>2017-09-25T13:35:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.xcatliu.com/2015/12/25/the_way_to_become_a_senior_software_engineer/</loc>
     
     <lastmod>2017-09-25T13:35:53.000Z</lastmod>
     
@@ -366,14 +380,7 @@
   </url>
   
   <url>
-    <loc>http://blog.xcatliu.com/2015/12/25/the_way_to_become_a_senior_software_engineer/</loc>
-    
-    <lastmod>2017-09-25T13:35:53.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.xcatliu.com/2017/01/06/2016_summery/</loc>
+    <loc>http://blog.xcatliu.com/2014/10/08/abstract_syntax_tree/</loc>
     
     <lastmod>2017-09-25T13:35:53.000Z</lastmod>
     
