@@ -74,8 +74,8 @@
 
   </div>
   <div class="top-gap-big">
-    <p>Git hooks is a useful tool to run scripts before or after events. We usually use it to check the format of commit message, prevent pushing code to master branch, or run test scripts before pushing.</p>
-<p>Sometimes we need to get the changelist is pre-push hook. It may not be as easy as you think – it’s hard to know how many commits you have been submitted since you last checking out to the new branch.</p>
+    <p>Git hooks is a useful tool to run scripts before or after events. We usually use it to check the format of commit message, lint our code, prevent pushing code to master branch, or run test scripts before pushing.</p>
+<p>Sometimes we need to get the changelist in pre-push hook. It may not be as easy as you think – It’s hard to know how many commits you have been submitted since you last checking out to the new branch.</p>
 <p>After some investigation, I’ve found a way to get the diff file list between the current <code>HEAD</code> and <code>origin/master</code>:</p>
 <pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># Find the common ancestor of current hash and origin/master</span>
 <span class="token comment" spellcheck="true"># https://stackoverflow.com/questions/1549146/find-common-ancestor-of-two-git-branches</span>
@@ -84,7 +84,7 @@ common_ancestor<span class="token operator">=</span><span class="token variable"
 <span class="token comment" spellcheck="true"># --diff-filter=ACMRT Only show files which is appended, copied, modified, renamed or type-changed</span>
 changelist<span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">git</span> <span class="token function">diff</span> $common_ancestor HEAD --name-only --diff-filter<span class="token operator">=</span>ACMRT<span class="token variable">`</span></span>
 </code></pre>
-<p>Posted in <a href="https://gist.github.com/xcatliu/ddc2aec4e4cde0824429477f7ea233cd" target="_blank" rel="external">gist</a></p>
+<p>Posted to <a href="https://gist.github.com/xcatliu/ddc2aec4e4cde0824429477f7ea233cd" target="_blank" rel="external">gist</a></p>
 
   </div>
 </article>
